@@ -8,7 +8,9 @@ module com.edugrade.heartbeat {
     requires java.sql;
     requires java.naming;
 
-    opens com.edugrade.heartbeat.Controller to javafx.fxml;
+    opens com.edugrade.heartbeat.Controller;
+    opens com.edugrade.heartbeat.Model;
+
     exports com.edugrade.heartbeat.Main;
     opens com.edugrade.heartbeat.Main to javafx.fxml;
 }

@@ -22,8 +22,10 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
         CriteriaQuery query = criteriaBuilder.createQuery(CustomerEntity.class);
         query.from(CustomerEntity.class);
 
-        Root<CustomerEntity> root = query.from(CustomerEntity.class);
-        Predicate predicate = criteriaBuilder.equal(root.get("id"), 2);
+        //Root<CustomerEntity> root = query.from(CustomerEntity.class);
+        //Predicate predicate = criteriaBuilder.equal(root.get("id"), 2);
+
+        //List<CustomerEntity> customerList = session.createQuery(query.where(predicate)).getResultList();
 
         List<CustomerEntity> customerList = session.createQuery(query).getResultList();
         session.close();

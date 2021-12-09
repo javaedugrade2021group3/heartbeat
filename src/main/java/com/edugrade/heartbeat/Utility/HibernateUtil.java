@@ -8,7 +8,7 @@ public class HibernateUtil {
 
     public static Session getSession() {
         SessionFactory sessionFactory;
-        sessionFactory = new Configuration().configure("persistence.xml").buildSessionFactory();
+        sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session;
         session = sessionFactory.openSession();
         return session;

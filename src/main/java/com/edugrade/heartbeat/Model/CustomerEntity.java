@@ -1,15 +1,16 @@
 package com.edugrade.heartbeat.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "customer", schema = "dbTest")
-public class CustomerEntity {
+public class CustomerEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "customerId")
-    private int customerId;
+    private int id;
     @Basic
     @Column(name = "firstName")
     private String firstName;
@@ -23,12 +24,12 @@ public class CustomerEntity {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    public int getCustomerId() {
-        return customerId;
+    public int getId() {
+        return id;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setId(int customerId) {
+        this.id = customerId;
     }
 
     public String getFirstName() {
@@ -68,11 +69,11 @@ public class CustomerEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomerEntity that = (CustomerEntity) o;
-        return customerId == that.customerId && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
+        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, address, phoneNumber);
+        return Objects.hash(id, firstName, lastName, address, phoneNumber);
     }
 }
