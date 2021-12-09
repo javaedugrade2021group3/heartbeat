@@ -15,29 +15,8 @@
         <Label fx:id="label_admin" layoutX="377.0" layoutY="11.0" prefHeight="17.0" prefWidth="151.0" text="Inloggad som:" />
         <TabPane fx:id="tabPane" layoutX="-3.0" layoutY="36.0" prefHeight="364.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0">
             <tabs>
-                <Tab text="Kunder">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <Button layoutX="130.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
-                                <TableView fx:id="customer_table" layoutY="110.0" prefHeight="223.0" prefWidth="600.0">
-                                    <columns>
-                                        <TableColumn prefWidth="75.0" text="Kund Id" />
-                                        <TableColumn prefWidth="84.0" text="Förnamn" />
-                                        <TableColumn prefWidth="89.0" text="Efternamn" />
-                                        <TableColumn prefWidth="69.0" text="Adress" />
-                                        <TableColumn prefWidth="74.0" text="Telefon" />
-                                    </columns>
-                                </TableView>
-                                <TextField layoutX="5.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund" />
-                                <TextField layoutX="284.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
-                                <TextField layoutX="284.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
-                                <TextField layoutX="388.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress" />
-                                <TextField layoutX="388.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon" />
-                                <Button layoutX="490.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
-                            </children>
-                        </AnchorPane>
-                    </content>
+                <Tab fx:id="customerTab" text="Kunder">
+                    <fx:include source="customer-tab-view.fxml"/>
                 </Tab>
                 <Tab fx:id="movieTab" text="Filmer">
                 </Tab>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.edugrade.heartbeat.Controller.CustomerController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Button layoutX="130.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
+        <TableView fx:id="customer_table" layoutY="110.0" prefHeight="223.0" prefWidth="600.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="Kund Id" />
+                <TableColumn prefWidth="84.0" text="Förnamn" />
+                <TableColumn prefWidth="89.0" text="Efternamn" />
+                <TableColumn prefWidth="69.0" text="Adress" />
+                <TableColumn prefWidth="74.0" text="Telefon" />
+            </columns>
+        </TableView>
+        <TextField layoutX="5.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund" />
+        <TextField layoutX="284.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
+        <TextField layoutX="284.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
+        <TextField layoutX="388.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress" />
+        <TextField layoutX="388.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon" />
+        <Button layoutX="490.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+    </children>
+
+</AnchorPane>
