@@ -2,34 +2,37 @@ package com.edugrade.heartbeat.DAO;
 
 import com.edugrade.heartbeat.Model.CustomerEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.hibernate.Session;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class CustomerDAO implements DAOInterface<CustomerEntity> {
+
     @Override
     public ObservableList<CustomerEntity> getAll() {
 
-        Session session = HibernateUtil.getSession();
-        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-        CriteriaQuery query = criteriaBuilder.createQuery(CustomerEntity.class);
-        query.from(CustomerEntity.class);
+        EntityManager entityManager = HibernateUtil.getEntityManager();
+        EntityTransaction transaction = null;
+        List<CustomerEntity> customerEntityList = null;
 
-        //Root<CustomerEntity> root = query.from(CustomerEntity.class);
-        //Predicate predicate = criteriaBuilder.equal(root.get("id"), 2);
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            TypedQuery<CustomerEntity> query = entityManager.createQuery("from CustomerEntity", CustomerEntity.class);
+            customerEntityList = query.getResultList();
+            transaction.commit();
 
-        //List<CustomerEntity> customerList = session.createQuery(query.where(predicate)).getResultList();
-
-        List<CustomerEntity> customerList = session.createQuery(query).getResultList();
-        session.close();
-
-        return FXCollections.observableArrayList(customerList);
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return FXCollections.observableArrayList(customerEntityList);
     }
 }

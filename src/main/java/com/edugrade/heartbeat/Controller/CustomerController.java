@@ -18,8 +18,8 @@ public class CustomerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CustomerDAO query = new CustomerDAO();
-        ObservableList<CustomerEntity> customerEntityObservableList = query.getAll();
+        CustomerDAO customerDAO = new CustomerDAO();
+        ObservableList<CustomerEntity> customerEntityObservableList = customerDAO.getAll();
 
         customer_table.setItems(customerEntityObservableList);
 
@@ -30,8 +30,8 @@ public class CustomerController implements Initializable {
         TableColumn column2 = (TableColumn) customer_table.getColumns().get(2);
         column2.setCellValueFactory(new PropertyValueFactory("lastName"));
         TableColumn column3 = (TableColumn) customer_table.getColumns().get(3);
-        column3.setCellValueFactory(new PropertyValueFactory("Address"));
+        column3.setCellValueFactory(new PropertyValueFactory("address"));
         TableColumn column4 = (TableColumn) customer_table.getColumns().get(4);
-        column4.setCellValueFactory(new PropertyValueFactory("PhoneNumber"));
+        column4.setCellValueFactory(new PropertyValueFactory("phoneNumber"));
     }
 }

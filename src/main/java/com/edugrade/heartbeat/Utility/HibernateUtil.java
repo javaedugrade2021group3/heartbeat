@@ -1,16 +1,14 @@
 package com.edugrade.heartbeat.Utility;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class HibernateUtil {
 
-    public static Session getSession() {
-        SessionFactory sessionFactory;
-        sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session;
-        session = sessionFactory.openSession();
-        return session;
+    public static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("hibernate");
+
+    public static EntityManager getEntityManager()  {
+        return ENTITY_MANAGER_FACTORY.createEntityManager();
     }
 }
