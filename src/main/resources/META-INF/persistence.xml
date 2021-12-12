@@ -8,7 +8,7 @@
         <class>com.edugrade.heartbeat.Model.CustomerEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://klwdigital.se:3306/dbTest" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://klwdigital.se:3306/sakila" />
             <property name="javax.persistence.jdbc.user" value="admin" />
             <property name="javax.persistence.jdbc.password" value="admin" />
             <property name="show_sql" value="true"/>
