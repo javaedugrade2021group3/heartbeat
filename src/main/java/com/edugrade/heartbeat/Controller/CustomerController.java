@@ -24,14 +24,24 @@ public class CustomerController implements Initializable {
         customer_table.setItems(customerEntityObservableList);
 
         TableColumn column0 = (TableColumn) customer_table.getColumns().get(0);
-        column0.setCellValueFactory(new PropertyValueFactory("id"));
+        column0.setCellValueFactory(new PropertyValueFactory("customerId"));
+
         TableColumn column1 = (TableColumn) customer_table.getColumns().get(1);
         column1.setCellValueFactory(new PropertyValueFactory("firstName"));
+
         TableColumn column2 = (TableColumn) customer_table.getColumns().get(2);
         column2.setCellValueFactory(new PropertyValueFactory("lastName"));
+
         TableColumn column3 = (TableColumn) customer_table.getColumns().get(3);
-        column3.setCellValueFactory(new PropertyValueFactory("address"));
+        column3.setCellValueFactory(new PropertyValueFactory("email"));
+
         TableColumn column4 = (TableColumn) customer_table.getColumns().get(4);
-        column4.setCellValueFactory(new PropertyValueFactory("phoneNumber"));
+        column4.setCellValueFactory(new PropertyValueFactory("active"));
+
+        TableColumn column5 = (TableColumn) customer_table.getColumns().get(5);
+        column5.setCellValueFactory(new PropertyValueFactory("createDate"));
+
+        TableColumn column6 = (TableColumn) customer_table.getColumns().get(6);
+        column6.setCellValueFactory(new PropertyValueFactory("lastUpdate"));
     }
 }

@@ -25,6 +25,8 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
             customerEntityList = query.getResultList();
             transaction.commit();
 
+            customerEntityList.forEach(e -> System.out.println(e.getActive()));
+
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();

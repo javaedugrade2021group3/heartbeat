@@ -1,37 +1,32 @@
 package com.edugrade.heartbeat.Model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "customer", schema = "dbTest")
-public class CustomerEntity implements Serializable {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "customerId")
-    private int id;
-    @Basic
-    @Column(name = "firstName")
+@Table(name = "customer", schema = "sakila")
+public class CustomerEntity {
+    private short customerId;
     private String firstName;
-    @Basic
-    @Column(name = "lastName")
     private String lastName;
-    @Basic
-    @Column(name = "address")
-    private String address;
-    @Basic
-    @Column(name = "phoneNumber")
-    private String phoneNumber;
+    private String email;
+    private byte active;
+    private Timestamp createDate;
+    private Timestamp lastUpdate;
 
-    public int getId() {
-        return id;
+    @Id
+    @Column(name = "customer_id")
+    public short getCustomerId() {
+        return customerId;
     }
 
-    public void setId(int customerId) {
-        this.id = customerId;
+    public void setCustomerId(short customerId) {
+        this.customerId = customerId;
     }
 
+    @Basic
+    @Column(name = "first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -40,6 +35,8 @@ public class CustomerEntity implements Serializable {
         this.firstName = firstName;
     }
 
+    @Basic
+    @Column(name = "last_name")
     public String getLastName() {
         return lastName;
     }
@@ -48,20 +45,44 @@ public class CustomerEntity implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    @Basic
+    @Column(name = "active")
+    public byte getActive() {
+        return active;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setActive(byte active) {
+        this.active = active;
+    }
+
+    @Basic
+    @Column(name = "create_date")
+    public Timestamp getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+    }
+
+    @Basic
+    @Column(name = "last_update")
+    public Timestamp getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     @Override
@@ -69,11 +90,11 @@ public class CustomerEntity implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomerEntity that = (CustomerEntity) o;
-        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
+        return customerId == that.customerId && active == that.active && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email) && Objects.equals(createDate, that.createDate) && Objects.equals(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, address, phoneNumber);
+        return Objects.hash(customerId, firstName, lastName, email, active, createDate, lastUpdate);
     }
 }
