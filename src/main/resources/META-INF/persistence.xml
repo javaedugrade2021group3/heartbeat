@@ -12,6 +12,8 @@
             <property name="javax.persistence.jdbc.user" value="admin" />
             <property name="javax.persistence.jdbc.password" value="admin" />
             <property name="show_sql" value="true"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://klwdigital.se:3306/sakila"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
         </properties>
     </persistence-unit>
 </persistence>

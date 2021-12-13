@@ -4,19 +4,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.LoggedInController">
+<AnchorPane prefHeight="712.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.LoggedInController">
     <children>
-        <Button fx:id="button_logout" layoutX="537.0" layoutY="7.0" mnemonicParsing="false" text="Logout" />
-        <Label fx:id="label_admin" layoutX="377.0" layoutY="11.0" prefHeight="17.0" prefWidth="151.0" text="Inloggad som:" />
+        <Button fx:id="button_logout" layoutX="711.0" layoutY="8.0" mnemonicParsing="false" text="Logout" />
+        <Label fx:id="label_admin" layoutX="560.0" layoutY="12.0" prefHeight="17.0" prefWidth="151.0" text="Inloggad som:" />
         <TabPane fx:id="tabPane" layoutX="-3.0" layoutY="36.0" prefHeight="364.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0">
             <tabs>
                 <Tab fx:id="customerTab" text="Kunder">
-                    <fx:include source="customer-tab-view.fxml"/>
+                    <fx:include source="customer-tab-view.fxml" />
                 </Tab>
                 <Tab fx:id="movieTab" text="Filmer">
                 </Tab>
