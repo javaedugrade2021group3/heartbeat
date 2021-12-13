@@ -6,6 +6,7 @@
     <persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.edugrade.heartbeat.Model.CustomerEntity</class>
+        <class>com.edugrade.heartbeat.Model.StaffEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://klwdigital.se:3306/sakila" />
