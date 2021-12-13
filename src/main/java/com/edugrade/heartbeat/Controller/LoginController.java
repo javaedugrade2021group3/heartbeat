@@ -1,8 +1,10 @@
 package com.edugrade.heartbeat.Controller;
 
-import com.edugrade.heartbeat.Utility.DBUtil;
+import com.edugrade.heartbeat.DAO.StaffDAO;
+import com.edugrade.heartbeat.Model.StaffEntity;
+import com.edugrade.heartbeat.Utility.Util;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,11 +24,23 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        button_login.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                DBUtil.logInUser(event, tf_username.getText(), pf_password.getText());
+        button_login.setOnAction(event -> login(event, tf_username.getText(), pf_password.getText()));
+    }
+
+    /**
+     * TODO - Try for existing user & try for wrong password
+     * */
+
+    public void login(ActionEvent event, String username, String password) {
+        StaffDAO staffDAO = new StaffDAO();
+        ObservableList<StaffEntity> staffEntityObservableList = staffDAO.getAll();
+
+        for (StaffEntity staff : staffEntityObservableList) {
+            if (staff.getPassword() != null) {
+                if (staff.getPassword().equals(password)) {
+                    Util.changeScene(event, "Admin Page", "/View/logged-in-view.fxml", username);
+                }
             }
-        });
+        }
     }
 }

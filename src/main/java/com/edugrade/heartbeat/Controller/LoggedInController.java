@@ -1,16 +1,9 @@
 package com.edugrade.heartbeat.Controller;
 
-import com.edugrade.heartbeat.DAO.CustomerDAO;
-import com.edugrade.heartbeat.Model.CustomerEntity;
-import com.edugrade.heartbeat.Utility.DBUtil;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.edugrade.heartbeat.Utility.Util;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import org.hibernate.PropertyValueException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,7 +21,7 @@ public class LoggedInController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Logga ut knappen -> Tar en tillbaka till login sidan.
-        button_logout.setOnAction(event -> DBUtil.changeScene(event, "Demo", "/View/login-view.fxml", null));
+        button_logout.setOnAction(event -> Util.changeScene(event, "Demo", "/View/login-view.fxml", null));
     }
 
     public void setUserInformation(String username) {
