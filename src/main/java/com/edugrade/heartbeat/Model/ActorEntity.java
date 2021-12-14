@@ -1,12 +1,13 @@
 package com.edugrade.heartbeat.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 @Table(name = "actor", schema = "sakila")
-public class ActorEntity {
+public class ActorEntity implements Serializable {
 
     private short actorId;
     private String firstName;
@@ -15,9 +16,13 @@ public class ActorEntity {
 
     @Id
     @Column(name = "actor_id")
-    public short getActorId() {return actorId}
+    public short getActorId() {
+        return actorId;
+    }
 
-    public void setActorId(short actorId) [this.actorId = actorId]
+    public void setActorId(short actorId){
+        this.actorId = actorId;
+    }
 
     @Basic
     @Column(name = "first_name")
@@ -60,8 +65,6 @@ public class ActorEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(actorId, firstName, lastName, lastUpdate);
-    } int hashCode() {
         return Objects.hash(actorId, firstName, lastName, lastUpdate);
     }
 

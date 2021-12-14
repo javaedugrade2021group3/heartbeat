@@ -21,7 +21,7 @@ public class LoggedInController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Logga ut knappen -> Tar en tillbaka till login sidan.
-        button_logout.setOnAction(event -> Util.changeScene(event, "Demo", "/View/login-view.fxml", null));
+        button_logout.setOnAction(event -> Util.changeScene(event, "Rentals4You", "/View/newloginview.fxml", null));
     }
 
     public void setUserInformation(String username) {

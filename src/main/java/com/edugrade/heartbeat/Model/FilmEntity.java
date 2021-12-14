@@ -1,85 +1,124 @@
 package com.edugrade.heartbeat.Model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Objects;
 
-    @Entity
-    @Table(name = "film", schema = "sakila")
-    public class FilmEntity implements Serializable {
+@Entity
+@Table(name = "film", schema = "sakila", catalog = "")
+public class FilmEntity {
+    private short filmId;
+    private String title;
+    private String description;
+    private String releaseYear;
+    private byte rentalDuration;
+    private double rentalRate;
+    private Short length;
+    private double replacementCost;
+    private Timestamp lastUpdate;
 
+    @Id
+    @Column(name = "film_id")
+    public short getFilmId() {
+        return filmId;
+    }
 
+    public void setFilmId(short filmId) {
+        this.filmId = filmId;
+    }
 
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Id
-        @Column(name = "filmId")
-        private int id;
-        @Basic
-        @Column(name = "firstName")
-        private String firstName;
-        @Basic
-        @Column(name = "lastName")
-        private String lastName;
-        @Basic
-        @Column(name = "address")
-        private String address;
-        @Basic
-        @Column(name = "phoneNumber")
-        private String phoneNumber;
+    @Basic
+    @Column(name = "title")
+    public String getTitle() {
+        return title;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public void setId(int customerId) {
-            this.id = customerId;
-        }
+    @Basic
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
 
-        public String getFirstName() {
-            return firstName;
-        }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
+    @Basic
+    @Column(name = "release_year")
+    public String getReleaseYear() {
+        return releaseYear;
+    }
 
-        public String getLastName() {
-            return lastName;
-        }
+    public void setReleaseYear(String releaseYear) {
+        this.releaseYear = releaseYear;
+    }
 
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
+    @Basic
+    @Column(name = "rental_duration")
+    public byte getRentalDuration() {
+        return rentalDuration;
+    }
 
-        public String getAddress() {
-            return address;
-        }
+    public void setRentalDuration(byte rentalDuration) {
+        this.rentalDuration = rentalDuration;
+    }
 
-        public void setAddress(String address) {
-            this.address = address;
-        }
+    @Basic
+    @Column(name = "rental_rate")
+    public double getRentalRate() {
+        return rentalRate;
+    }
 
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
+    public void setRentalRate(double rentalRate) {
+        this.rentalRate = rentalRate;
+    }
 
-        public void setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-        }
+    @Basic
+    @Column(name = "length")
+    public Short getLength() {
+        return length;
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            com.edugrade.heartbeat.Model.FilmEntity that = (com.edugrade.heartbeat.Model.FilmEntity) o;
-            return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber);
-        }
+    public void setLength(Short length) {
+        this.length = length;
+    }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(id, firstName, lastName, address, phoneNumber);
-        }
+    @Basic
+    @Column(name = "replacement_cost")
+    public double getReplacementCost() {
+        return replacementCost;
+    }
+
+    public void setReplacementCost(double replacementCost) {
+        this.replacementCost = replacementCost;
     }
 
 
+    @Basic
+    @Column(name = "last_update")
+    public Timestamp getLastUpdate() {
+        return lastUpdate;
+    }
 
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FilmEntity that = (FilmEntity) o;
+        return filmId == that.filmId && rentalDuration == that.rentalDuration && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(releaseYear, that.releaseYear) && Objects.equals(rentalRate, that.rentalRate) && Objects.equals(length, that.length) && Objects.equals(replacementCost, that.replacementCost) && Objects.equals(lastUpdate, that.lastUpdate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(filmId, title, description, releaseYear, rentalDuration, rentalRate, length, replacementCost, lastUpdate);
+    }
+}

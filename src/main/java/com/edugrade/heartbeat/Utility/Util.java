@@ -33,7 +33,7 @@ public class Util {
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, 800, 600));
+        stage.setScene(new Scene(root, 800, 500));
         stage.show();
     }
 }
