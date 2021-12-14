@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "customer", schema = "sakila")
 public class CustomerEntity {
+
     private short customerId;
     private String firstName;
     private String lastName;
