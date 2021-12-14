@@ -1,8 +1,7 @@
 package com.edugrade.heartbeat.Controller;
 
 import com.edugrade.heartbeat.DAO.ActorDAO;
-import com.edugrade.heartbeat.DAO.CustomerDAO;
-import com.edugrade.heartbeat.Model.CustomerEntity;
+import com.edugrade.heartbeat.Model.ActorEntity;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -18,8 +17,8 @@ public class ActorController {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CustomerDAO customerDAO = new CustomerDAO();
-        ObservableList<CustomerEntity> actorEntityObservableList = ActorDAO.getAll();
+        ActorDAO actorDAO = new ActorDAO();
+        ObservableList<ActorEntity> actorEntityObservableList = ActorDAO.getAll();
 
         actor_table.setItems(actorEntityObservableList);
 
