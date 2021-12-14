@@ -18,10 +18,8 @@
                 <Tab fx:id="movieTab" text="Filmer">
                     <fx:include source="film-tab-view.fxml"/>
                 </Tab>
-                <Tab text="Untitled Tab 3">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
+                <Tab fx:id="actorTab" text="Skådespelare">
+                    <fx:include source="actor-tab-view.fxml" />
                 </Tab>
                 <Tab text="Untitled Tab 4">
                     <content>
