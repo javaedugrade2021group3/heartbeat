@@ -1,17 +1,13 @@
 package com.edugrade.heartbeat.DAO;
 
-import com.edugrade.heartbeat.Model.CustomerEntity;
 import com.edugrade.heartbeat.Model.FilmEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 

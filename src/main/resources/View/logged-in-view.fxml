@@ -16,6 +16,7 @@
                     <fx:include source="customer-tab-view.fxml" />
                 </Tab>
                 <Tab fx:id="movieTab" text="Filmer">
+                    <fx:include source="film-tab-view.fxml"/>
                 </Tab>
                 <Tab text="Untitled Tab 3">
                     <content>
