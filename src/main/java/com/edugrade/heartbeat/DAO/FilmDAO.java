@@ -1,34 +1,46 @@
 package com.edugrade.heartbeat.DAO;
 
+import com.edugrade.heartbeat.Model.CustomerEntity;
 import com.edugrade.heartbeat.Model.FilmEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.hibernate.Session;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 
 public class FilmDAO implements DAOInterface<FilmEntity> {
+
+
         @Override
         public ObservableList<FilmEntity> getAll() {
+            EntityManager entityManager = HibernateUtil.getEntityManager();
+            EntityTransaction transaction = null;
+            List<FilmEntity> filmEntityList = null;
 
-            Session session = HibernateUtil.getSession();
-            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-            CriteriaQuery query = criteriaBuilder.createQuery(FilmEntity.class);
-            query.from(FilmEntity.class);
+            try {
+                transaction = entityManager.getTransaction();
+                transaction.begin();
+                TypedQuery<FilmEntity> query = entityManager.createQuery("from FilmEntity", FilmEntity.class);
+                filmEntityList = query.getResultList();
+                transaction.commit();
 
-            //Root<FilmEntity> root = query.from(Film Entity.class);
-            //Predicate predicate = criteriaBuilder.equal(root.get("id"), 2);
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            } finally {
+                entityManager.close();
+            }
 
-            //List<FilmEntity> filmList = session.createQuery(query.where(predicate)).getResultList();
-
-            List<FilmEntity> filmList = session.createQuery(query).getResultList();
-            session.close();
-
-            return FXCollections.observableArrayList(filmList);
+            return FXCollections.observableArrayList(filmEntityList);
         }
 }
 
