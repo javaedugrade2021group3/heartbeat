@@ -18,14 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    /*
-    @FXML
-    private Button button_login;
-    @FXML
-    private TextField tf_username;
-    @FXML
-    private PasswordField pf_password;
-  */
+
     @FXML
     private Button button_login;
     @FXML

@@ -8,6 +8,7 @@
         <class>com.edugrade.heartbeat.Model.CustomerEntity</class>
         <class>com.edugrade.heartbeat.Model.StaffEntity</class>
         <class>com.edugrade.heartbeat.Model.FilmEntity</class>
+        <class>com.edugrade.heartbeat.Model.CategoryEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://klwdigital.se:3306/sakila" />
