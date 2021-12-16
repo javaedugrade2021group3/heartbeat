@@ -24,6 +24,9 @@
                 <Tab fx:id="categoryTab" text="Kategori">
                     <fx:include source="category-tab-view.fxml"/>
                 </Tab>
+                <Tab fx:id="StaffTab" text="Personal">
+                    <fx:include source="staff-tab-view.fxml" />
+                </Tab>
             </tabs>
         </TabPane>
     </children>
