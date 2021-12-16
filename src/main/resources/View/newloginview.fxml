@@ -31,9 +31,9 @@
          <font>
             <Font name="Haettenschweiler" size="17.0" />
          </font></PasswordField>
-      <Label blendMode="COLOR_DODGE" layoutX="235.0" layoutY="160.0" text="Rentals4You" textOverrun="CENTER_ELLIPSIS">
+      <Label blendMode="COLOR_DODGE" layoutX="196.0" layoutY="119.0" text="Rentals4You" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font name="Haettenschweiler" size="85.0" />
+            <Font name="Trattatello" size="85.0" />
          </font>
          <effect>
             <Blend mode="EXCLUSION" opacity="0.07" />
@@ -76,7 +76,7 @@
             <Glow />
          </effect>
       </Rectangle>
-      <Button fx:id="button_login" defaultButton="true" layoutX="358.0" layoutY="424.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" style="-fx-background-color: #171717;" text="Log in" textFill="#f5f5f5">
+      <Button fx:id="button_login" defaultButton="true" layoutX="345.0" layoutY="422.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="112.0" style="-fx-background-color: #171717;" text="Log in" textFill="#f5f5f5">
          <font>
             <Font name="Haettenschweiler" size="24.0" />
          </font>
