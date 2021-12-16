@@ -12,6 +12,11 @@ import java.util.List;
 public class ActorDAO implements DAOInterface<ActorEntity>{
 
     @Override
+    public List<ActorEntity> searchById(short id) {
+        return null;
+    }
+
+    @Override
     public ObservableList<ActorEntity> getAll() {
 
         EntityManager entityManager = HibernateUtil.getEntityManager();
