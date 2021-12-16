@@ -14,7 +14,12 @@ import java.util.List;
 public class FilmDAO implements DAOInterface<FilmEntity> {
 
 
-        @Override
+    @Override
+    public List<FilmEntity> searchById(short id) {
+        return null;
+    }
+
+    @Override
         public ObservableList<FilmEntity> getAll() {
             EntityManager entityManager = HibernateUtil.getEntityManager();
             EntityTransaction transaction = null;

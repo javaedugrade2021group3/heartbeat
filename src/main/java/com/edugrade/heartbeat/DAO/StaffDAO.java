@@ -12,6 +12,11 @@ import java.util.List;
 public class StaffDAO implements DAOInterface<StaffEntity> {
 
     @Override
+    public List<StaffEntity> searchById(short id) {
+        return null;
+    }
+
+    @Override
     public ObservableList<StaffEntity> getAll() {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;

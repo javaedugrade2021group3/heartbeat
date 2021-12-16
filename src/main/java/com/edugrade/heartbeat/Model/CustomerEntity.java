@@ -7,17 +7,35 @@ import java.util.Objects;
 @Entity
 @Table(name = "customer", schema = "sakila")
 public class CustomerEntity {
-
-    private short customerId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private byte active;
-    private Timestamp createDate;
-    private Timestamp lastUpdate;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "customer_id")
+    private short customerId;
+    @Basic
+    @Column(name = "store_id")
+    private byte storeId;
+    @Basic
+    @Column(name = "first_name")
+    private String firstName;
+    @Basic
+    @Column(name = "last_name")
+    private String lastName;
+    @Basic
+    @Column(name = "email")
+    private String email;
+    @Basic
+    @Column(name = "address_id")
+    private short addressId;
+    @Basic
+    @Column(name = "active")
+    private byte active;
+    @Basic
+    @Column(name = "create_date")
+    private Timestamp createDate;
+    @Basic
+    @Column(name = "last_update")
+    private Timestamp lastUpdate;
+
     public short getCustomerId() {
         return customerId;
     }
@@ -26,8 +44,14 @@ public class CustomerEntity {
         this.customerId = customerId;
     }
 
-    @Basic
-    @Column(name = "first_name")
+    public byte getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(byte storeId) {
+        this.storeId = storeId;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -36,8 +60,6 @@ public class CustomerEntity {
         this.firstName = firstName;
     }
 
-    @Basic
-    @Column(name = "last_name")
     public String getLastName() {
         return lastName;
     }
@@ -46,8 +68,6 @@ public class CustomerEntity {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -56,8 +76,14 @@ public class CustomerEntity {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "active")
+    public short getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(short addressId) {
+        this.addressId = addressId;
+    }
+
     public byte getActive() {
         return active;
     }
@@ -66,8 +92,6 @@ public class CustomerEntity {
         this.active = active;
     }
 
-    @Basic
-    @Column(name = "create_date")
     public Timestamp getCreateDate() {
         return createDate;
     }
@@ -76,8 +100,6 @@ public class CustomerEntity {
         this.createDate = createDate;
     }
 
-    @Basic
-    @Column(name = "last_update")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -90,12 +112,12 @@ public class CustomerEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CustomerEntity that = (CustomerEntity) o;
-        return customerId == that.customerId && active == that.active && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email) && Objects.equals(createDate, that.createDate) && Objects.equals(lastUpdate, that.lastUpdate);
+        CustomerEntity customer = (CustomerEntity) o;
+        return customerId == customer.customerId && storeId == customer.storeId && addressId == customer.addressId && active == customer.active && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(createDate, customer.createDate) && Objects.equals(lastUpdate, customer.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, email, active, createDate, lastUpdate);
+        return Objects.hash(customerId, storeId, firstName, lastName, email, addressId, active, createDate, lastUpdate);
     }
 }

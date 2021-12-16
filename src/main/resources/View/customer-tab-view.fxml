@@ -15,24 +15,27 @@
             <Image url="@../Assets/movies.jpg" />
          </image>
       </ImageView>
-        <Button layoutX="172.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
-        <TableView fx:id="customer_table" layoutX="2.0" layoutY="172.0" prefHeight="292.0" prefWidth="800.0">
+        <Button fx:id="search_button" layoutX="130.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
+        <TableView fx:id="customer_table" layoutX="5.0" layoutY="137.0" prefHeight="302.0" prefWidth="799.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="Kund Id" />
+                <TableColumn prefWidth="84.0" text="Affär Id" />
                 <TableColumn prefWidth="89.0" text="Förnamn" />
-                <TableColumn prefWidth="93.0" text="Efternamn" />
-                <TableColumn prefWidth="108.0" text="Email" />
-                <TableColumn minWidth="0.0" prefWidth="56.0" text="Aktiv" />
-                <TableColumn prefWidth="109.0" text="Skapades" />
-                <TableColumn prefWidth="171.0" text="Senast Uppdaterad" />
+                <TableColumn prefWidth="69.0" text="Efternamn" />
+                <TableColumn prefWidth="74.0" text="Email" />
+                <TableColumn prefWidth="74.0" text="Adress Id" />
+                <TableColumn prefWidth="74.0" text="Aktiv" />
+                <TableColumn prefWidth="74.0" text="Skapades" />
+                <TableColumn prefWidth="74.0" text="Senast Uppdaterad" />
             </columns>
         </TableView>
-        <TextField layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund" />
-        <TextField layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
-        <TextField layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
-        <TextField layoutX="584.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress" />
-        <TextField layoutX="584.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon" />
-        <Button layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <TextField fx:id="tf_search" layoutX="5.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund id" />
+        <TextField layoutX="284.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
+        <TextField layoutX="284.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
+        <TextField layoutX="388.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress" />
+        <TextField layoutX="388.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon" />
+        <Button layoutX="490.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <Button fx:id="show_all_button" layoutX="5.0" layoutY="58.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="164.0" text="Visa alla kunder" />
     </children>
 
 </AnchorPane>

@@ -14,6 +14,11 @@ public class CategoryDAO implements DAOInterface <CategoryEntity> {
 
 
     @Override
+    public List<CategoryEntity> searchById(short id) {
+        return null;
+    }
+
+    @Override
     public ObservableList<CategoryEntity> getAll() {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;
