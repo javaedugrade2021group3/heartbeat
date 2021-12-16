@@ -11,7 +11,7 @@ public class StaffEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "staff_id")
-    private byte staffId;
+    private short staffId;
     @Basic
     @Column(name = "first_name")
     private String firstName;
@@ -43,11 +43,11 @@ public class StaffEntity {
     @Column(name = "last_update")
     private Timestamp lastUpdate;
 
-    public byte getStaffId() {
+    public short getStaffId() {
         return staffId;
     }
 
-    public void setStaffId(byte staffId) {
+    public void setStaffId(short staffId) {
         this.staffId = staffId;
     }
 
@@ -80,7 +80,11 @@ public class StaffEntity {
     }
 
     public void setPicture(byte[] picture) {
-        this.picture = picture;
+        if (null != picture) {
+            this.picture = picture;
+        } else {
+            this.picture = new byte[] {0};
+        }
     }
 
     public String getEmail() {
@@ -88,7 +92,11 @@ public class StaffEntity {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (null != email) {
+            this.email = email;
+        } else {
+            this.email = "";
+        }
     }
 
     public byte getStoreId() {
@@ -120,7 +128,11 @@ public class StaffEntity {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (null != password) {
+            this.password = password;
+        } else {
+            this.password = "";
+        }
     }
 
     public Timestamp getLastUpdate() {
