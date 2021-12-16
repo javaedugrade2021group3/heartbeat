@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="443.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.ActorController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.ActorController">
     <children>
        <Button layoutX="172.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
-        <TableView fx:id="actor_table" layoutY="134.0" prefHeight="292.0" prefWidth="800.0">
+        <TableView fx:id="actor_table" layoutX="30.0" layoutY="119.0" prefHeight="359.0" prefWidth="936.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Skådespelar Id" />
-                <TableColumn prefWidth="89.0" text="Förnamn" />
-                <TableColumn prefWidth="93.0" text="Efternamn" />
-                <TableColumn prefWidth="171.0" text="Senast Uppdaterad" />
+                <TableColumn prefWidth="95.0" text="Skådespelar Id" />
+                <TableColumn prefWidth="127.0" text="Förnamn" />
+                <TableColumn prefWidth="150.0" text="Efternamn" />
+                <TableColumn prefWidth="187.0" text="Senast Uppdaterad" />
             </columns>
         </TableView>
         <TextField layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter skådespelare" />
