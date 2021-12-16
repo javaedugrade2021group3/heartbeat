@@ -17,10 +17,21 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
         EntityTransaction transaction = null;
         List<CustomerEntity> customerEntityList = null;
 
-        TypedQuery<CustomerEntity> query = entityManager.createQuery("from CustomerEntity where customerId = ?1", CustomerEntity.class);
-        query.setParameter(1, id);
-        customerEntityList = query.getResultList();
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            TypedQuery<CustomerEntity> query = entityManager.createQuery("from CustomerEntity where customerId = ?1", CustomerEntity.class);
+            query.setParameter(1, id);
+            customerEntityList = query.getResultList();
+            transaction.commit();
 
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            entityManager.close();
+        }
         return FXCollections.observableArrayList(customerEntityList);
     }
 
