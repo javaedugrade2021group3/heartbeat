@@ -16,22 +16,22 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #171717;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #171717;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.LoginController">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="800.0" opacity="0.42" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="1000.0" opacity="0.42" pickOnBounds="true">
          <image>
             <Image url="@../Assets/movies.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="tf_username" layoutX="316.0" layoutY="313.0" prefHeight="25.0" prefWidth="170.0" promptText="Username:">
+      <TextField fx:id="tf_username" layoutX="415.0" layoutY="365.0" prefHeight="25.0" prefWidth="170.0" promptText="Username:">
          <font>
             <Font name="Haettenschweiler" size="17.0" />
          </font></TextField>
-      <PasswordField fx:id="pf_password" layoutX="316.0" layoutY="358.0" prefHeight="30.0" prefWidth="170.0" promptText="Password:">
+      <PasswordField fx:id="pf_password" layoutX="415.0" layoutY="421.0" prefHeight="30.0" prefWidth="170.0" promptText="Password:">
          <font>
             <Font name="Haettenschweiler" size="17.0" />
          </font></PasswordField>
-      <Label blendMode="COLOR_DODGE" layoutX="196.0" layoutY="119.0" text="Rentals4You" textOverrun="CENTER_ELLIPSIS">
+      <Label blendMode="COLOR_DODGE" layoutX="310.0" layoutY="189.0" text="Rentals4You" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="Trattatello" size="85.0" />
          </font>
@@ -55,7 +55,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Rectangle arcHeight="2.0" arcWidth="8.0" height="23.0" layoutX="-30.0" layoutY="445.0" opacity="0.55" stroke="#0d0d0d" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="831.0">
+      <Rectangle arcHeight="2.0" arcWidth="8.0" height="27.0" layoutX="-30.0" layoutY="530.0" opacity="0.55" stroke="#0d0d0d" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="1033.0">
          <fill>
             <LinearGradient endX="0.4312796208530806" endY="0.4549763033175356" startX="0.2938388625592417">
                <stops>
@@ -76,7 +76,7 @@
             <Glow />
          </effect>
       </Rectangle>
-      <Button fx:id="button_login" defaultButton="true" layoutX="345.0" layoutY="422.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="112.0" style="-fx-background-color: #171717;" text="Log in" textFill="#f5f5f5">
+      <Button fx:id="button_login" defaultButton="true" layoutX="444.0" layoutY="501.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="112.0" style="-fx-background-color: #171717;" text="Log in" textFill="#f5f5f5">
          <font>
             <Font name="Haettenschweiler" size="24.0" />
          </font>
@@ -84,7 +84,7 @@
             <DropShadow height="54.71" radius="34.5475" spread="0.59" width="85.48" />
          </effect>
       </Button>
-      <Button fx:id="button_exit" cancelButton="true" layoutX="698.0" layoutY="438.0" mnemonicParsing="false" style="-fx-background-color: #171717;" text="Exit" textFill="#757272">
+      <Button fx:id="button_exit" cancelButton="true" layoutX="883.0" layoutY="523.0" mnemonicParsing="false" style="-fx-background-color: #171717;" text="Exit" textFill="#757272">
          <font>
             <Font name="Haettenschweiler" size="21.0" />
          </font>
