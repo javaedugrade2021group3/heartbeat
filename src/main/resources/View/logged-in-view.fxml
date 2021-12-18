@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -29,6 +30,9 @@
                     <fx:include source="staff-tab-view.fxml" />
                 </Tab>
             </tabs>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </TabPane>
     </children>
 </AnchorPane>

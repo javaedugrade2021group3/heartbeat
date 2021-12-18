@@ -73,7 +73,11 @@ public class CustomerEntity {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (null != email) {
+            this.email = email;
+        } else {
+            this.email = "";
+        }
     }
 
     public short getAddressId() {
