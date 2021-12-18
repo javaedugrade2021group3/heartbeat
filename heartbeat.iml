@@ -16,7 +16,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="heartbeat" value="f1b4c2c2-dde6-47f3-afc9-d4d895bed512" />
-          <factory-entry name="hibernate" value="909dbc7e-002e-43b5-af10-c0e0dec505ec" />
+          <factory-entry name="hibernate" value="7532bad9-b771-40e5-92bf-9331e60270c4" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />

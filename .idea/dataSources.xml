@@ -8,18 +8,11 @@
       <jdbc-url>jdbc:mysql://klwdigital.se:3306/sakila</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="hibernate/Hibernate" uuid="b27714ab-3a4e-4804-ba06-8e6ec58c821f">
+    <data-source source="LOCAL" name="@Jean Sakila" uuid="7532bad9-b771-40e5-92bf-9331e60270c4">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-C:/Java_utbildning/Databaser/heartbeat/src/main/resources/META-INF/persistence.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://klwdigital.se:3306/sakila</jdbc-url>
-      <jdbc-additional-properties>
-        <property name="APPROVED_DRIVER" value="mysql.8" />
-      </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
