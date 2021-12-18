@@ -13,7 +13,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         //Parent root = FXMLLoader.load(getClass().getResource("/View/newloginview.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("/View/logged-in-view.fxml"));
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root, 1000, 600);
+
         stage.setTitle("Rentals4You");
         stage.setScene(scene);
         stage.show();

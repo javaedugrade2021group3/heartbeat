@@ -5,27 +5,59 @@ import com.edugrade.heartbeat.Model.CustomerEntity;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
 
     @FXML
-    private TableView customer_table;
+    private TableView<CustomerEntity> customer_table;
     @FXML
     private Button search_button;
     @FXML
     private TextField tf_search;
     @FXML
     private Button show_all_button;
+    @FXML
+    private TextField tf_firstName;
+    @FXML
+    private TextField tf_lastName;
+    @FXML
+    private TextField tf_address;
+    @FXML
+    private TextField tf_email;
+    @FXML
+    private TextField tf_active;
+    @FXML
+    private TextField tf_store;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        show_all_button.setOnAction(event -> getAllCustomers());
+        searchButton();
+        selectFromTable();
+    }
+
+    private void selectFromTable() {
+        TableView.TableViewSelectionModel<CustomerEntity> selectionModel = customer_table.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.SINGLE);
+        ObservableList<CustomerEntity> selectedItems = selectionModel.getSelectedItems();
+        customer_table.setOnMouseClicked(MouseEvent -> {
+            selectedItems.forEach(e -> {
+                tf_firstName.setText(e.getFirstName());
+                tf_lastName.setText(e.getLastName());
+                tf_store.setText(String.valueOf(e.getStoreId())); // Swap to store name later
+                tf_email.setText(e.getEmail());
+                tf_address.setText(String.valueOf(e.getAddressId())); // Swap to address later
+                tf_active.setText(String.valueOf(e.getActive()));
+            });
+        });
+    }
+
+    private void searchButton() {
         search_button.setOnAction(event -> {
             if (tf_search.getText().equals("")) {
                 getAllCustomers();
@@ -34,7 +66,6 @@ public class CustomerController implements Initializable {
                 tf_search.clear();
             }
         });
-        show_all_button.setOnAction(event -> getAllCustomers());
     }
 
     private void getCustomerById(short id) {
