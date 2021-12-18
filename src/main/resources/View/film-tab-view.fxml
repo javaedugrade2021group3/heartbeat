@@ -4,18 +4,27 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.FilmController">
     <children>
-        <ImageView fitHeight="636.0" fitWidth="1050.0" layoutX="-1.0" opacity="0.54" pickOnBounds="true" AnchorPane.bottomAnchor="0.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#333639" height="44.0" layoutX="36.0" layoutY="36.0" stroke="BLACK" width="200.0" />
+        <ImageView cache="true" depthTest="DISABLE" fitHeight="636.0" fitWidth="1050.0" layoutX="-1.0" opacity="0.76" pickOnBounds="true" AnchorPane.bottomAnchor="0.0">
          <image>
             <Image url="@../Assets/movies.jpg" />
-         </image></ImageView>
-        <Button layoutX="162.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
-        <TableView fx:id="film_table" layoutX="21.0" layoutY="128.0" prefHeight="361.0" prefWidth="966.0">
+         </image>
+         <effect>
+            <DropShadow height="0.0" radius="43.0725" width="174.29" />
+         </effect></ImageView>
+        <Button layoutX="162.0" layoutY="24.0" mnemonicParsing="false" text="Sök">
+         <effect>
+            <DropShadow height="29.84" radius="12.21" spread="0.44" />
+         </effect></Button>
+        <TableView fx:id="film_table" layoutX="25.0" layoutY="138.0" prefHeight="361.0" prefWidth="966.0">
             <columns>
                 <TableColumn prefWidth="47.0" text="Film Id" />
                 <TableColumn prefWidth="117.0" text="Titel" />
@@ -27,13 +36,34 @@
                 <TableColumn prefWidth="190.0" text="Ersättningskostnad" />
                 <TableColumn maxWidth="200.0" prefWidth="277.0" text="Senast uppdaterad" />
             </columns>
+         <effect>
+            <DropShadow height="79.96" radius="65.27499999999999" spread="0.45" width="183.14" />
+         </effect>
         </TableView>
-        <TextField layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter titel" />
-        <TextField layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
-        <TextField layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
-        <TextField layoutX="584.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress" />
-        <TextField layoutX="584.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon" />
-        <Button layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <TextField layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Namn">
+         <effect>
+            <DropShadow spread="0.36" />
+         </effect></TextField>
+        <TextField layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter titel">
+         <effect>
+            <DropShadow height="44.59" radius="19.582500000000003" spread="0.4" width="35.74" />
+         </effect></TextField>
+        <TextField layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn">
+         <effect>
+            <DropShadow height="29.84" radius="12.21" spread="0.38" />
+         </effect></TextField>
+        <TextField layoutX="584.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress">
+         <effect>
+            <DropShadow spread="0.52" />
+         </effect></TextField>
+        <TextField layoutX="584.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon">
+         <effect>
+            <DropShadow spread="0.57" />
+         </effect></TextField>
+        <Button layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera">
+         <effect>
+            <DropShadow spread="0.59" />
+         </effect></Button>
     </children>
 
 </AnchorPane>

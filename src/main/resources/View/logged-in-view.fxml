@@ -4,14 +4,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.LoggedInController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #2d3438;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.LoggedInController">
     <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="27.0" layoutX="611.0" layoutY="8.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="265.0" AnchorPane.leftAnchor="625.0" AnchorPane.rightAnchor="87.0">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Rectangle>
 
-        <Button fx:id="button_logout" layoutX="897.0" layoutY="8.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Logout" />
-        <Label fx:id="label_admin" layoutX="620.0" layoutY="13.0" prefHeight="17.0" prefWidth="236.0" text="Inloggad som:" />
-        <TabPane fx:id="tabPane" layoutY="39.0" prefHeight="561.0" prefWidth="1006.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="39.0">
+        <Button fx:id="button_logout" layoutX="889.0" layoutY="8.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" text="Logout" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="18.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+        <Label fx:id="label_admin" layoutX="641.0" layoutY="13.0" prefHeight="17.0" prefWidth="236.0" text="Inloggad som:" AnchorPane.leftAnchor="641.0" AnchorPane.rightAnchor="127.0" />
+        <TabPane fx:id="tabPane" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="1006.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="39.0">
             <tabs>
                 <Tab fx:id="customerTab" text="Kunder">
                     <fx:include source="customer-tab-view.fxml" />
@@ -31,4 +45,7 @@
             </tabs>
         </TabPane>
     </children>
+   <effect>
+      <InnerShadow choke="0.14" height="91.75" radius="33.125" width="42.75" />
+   </effect>
 </AnchorPane>

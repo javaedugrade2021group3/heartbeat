@@ -15,7 +15,7 @@ public class Util {
         Parent root = null;
 
         if (username != null) {
-            try {
+         try {
                 FXMLLoader fxmlLoader = new FXMLLoader(Util.class.getResource(fxmlFile));
                 root = fxmlLoader.load();
                 LoggedInController loggedInController = fxmlLoader.getController();
@@ -24,16 +24,20 @@ public class Util {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         } else {
             try {
                 root = FXMLLoader.load(Util.class.getResource(fxmlFile));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+
+
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
         stage.setScene(new Scene(root, 1000, 600));
         stage.show();
+        }
+
     }
 }
