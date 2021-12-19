@@ -29,6 +29,12 @@
                 <Tab fx:id="StaffTab" text="Personal">
                     <fx:include source="staff-tab-view.fxml" />
                 </Tab>
+                <Tab fx:id="CountryTab" text="Land">
+                    <fx:include source="country-tab-view.fxml" />
+                </Tab>
+                <Tab fx:id="AdressTab" text="Adress">
+                    <fx:include source="address-tab-view.fxml" />
+                </Tab>
             </tabs>
          <cursor>
             <Cursor fx:constant="HAND" />
