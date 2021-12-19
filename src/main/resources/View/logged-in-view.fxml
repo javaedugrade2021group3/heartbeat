@@ -35,6 +35,9 @@
                 <Tab fx:id="AdressTab" text="Adress">
                     <fx:include source="address-tab-view.fxml" />
                 </Tab>
+                <Tab fx:id="inventoryTab" text="Lager">
+                    <fx:include source="inventory-tab-view.fxml"/>
+                </Tab>
             </tabs>
          <cursor>
             <Cursor fx:constant="HAND" />
