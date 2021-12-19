@@ -33,28 +33,68 @@ public class CustomerController implements Initializable {
     private TextField tf_active;
     @FXML
     private TextField tf_store;
+    @FXML
+    private Button clear_fields_button;
+    @FXML
+    private Button create_new_entry_button;
+    @FXML
+    private Button delete_button;
+    @FXML
+    private TextField tf_id;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         show_all_button.setOnAction(event -> getAllCustomers());
+        clear_fields_button.setOnAction(event -> clearSelectedFields());
         searchButton();
         selectFromTable();
+        create_new_entry_button.setOnAction(event -> addNewEntry());
+        delete_button.setOnAction(event -> deleteSelectedItem());
+    }
+
+    private void deleteSelectedItem() {
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.deleteEntryById(Short.parseShort(tf_id.getText()));
+    }
+
+    private void addNewEntry() {
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.addNewCustomer(
+                tf_firstName.getText(),
+                tf_lastName.getText(),
+                Byte.parseByte(tf_store.getText()),
+                tf_email.getText(),
+                Short.parseShort(tf_address.getText()),
+                Byte.parseByte(tf_active.getText())
+        );
+    }
+
+    private void clearSelectedFields() {
+        if (tf_firstName != null) {
+            tf_firstName.setText("");
+            tf_lastName.setText("");
+            tf_store.setText("");
+            tf_email.setText("");
+            tf_address.setText("");
+            tf_active.setText("");
+            tf_id.setText("");
+        }
+
     }
 
     private void selectFromTable() {
         TableView.TableViewSelectionModel<CustomerEntity> selectionModel = customer_table.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
         ObservableList<CustomerEntity> selectedItems = selectionModel.getSelectedItems();
-        customer_table.setOnMouseClicked(MouseEvent -> {
-            selectedItems.forEach(e -> {
-                tf_firstName.setText(e.getFirstName());
-                tf_lastName.setText(e.getLastName());
-                tf_store.setText(String.valueOf(e.getStoreId())); // Swap to store name later
-                tf_email.setText(e.getEmail());
-                tf_address.setText(String.valueOf(e.getAddressId())); // Swap to address later
-                tf_active.setText(String.valueOf(e.getActive()));
-            });
-        });
+        customer_table.setOnMouseClicked(MouseEvent -> selectedItems.forEach(e -> {
+            tf_firstName.setText(e.getFirstName());
+            tf_lastName.setText(e.getLastName());
+            tf_store.setText(String.valueOf(e.getStoreId())); // Swap to store name later
+            tf_email.setText(e.getEmail());
+            tf_address.setText(String.valueOf(e.getAddressId())); // Swap to address later
+            tf_active.setText(String.valueOf(e.getActive()));
+            tf_id.setText(String.valueOf(e.getCustomerId()));
+        }));
     }
 
     private void searchButton() {
