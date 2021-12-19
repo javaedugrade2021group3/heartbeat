@@ -14,6 +14,11 @@ public class CountryDAO implements DAOInterface <CountryEntity> {
 
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<CountryEntity> searchById(short id) { return null; }
 
     @Override

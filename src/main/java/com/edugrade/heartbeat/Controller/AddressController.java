@@ -36,7 +36,7 @@ public class AddressController implements Initializable {
         column2.setCellValueFactory(new PropertyValueFactory("address2"));
 
         TableColumn column3 = (TableColumn) address_table.getColumns().get(3);
-        column3.setCellValueFactory(new PropertyValueFactory("distict"));
+        column3.setCellValueFactory(new PropertyValueFactory("district"));
 
         TableColumn column4 = (TableColumn) address_table.getColumns().get(4);
         column4.setCellValueFactory(new PropertyValueFactory("cityId"));
