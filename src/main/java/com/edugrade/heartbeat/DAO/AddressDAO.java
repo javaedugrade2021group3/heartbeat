@@ -14,6 +14,11 @@ public class AddressDAO implements DAOInterface<AddressEntity>{
 
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<AddressEntity> searchById(short Id) {
         return null;
     }
