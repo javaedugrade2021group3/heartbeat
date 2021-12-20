@@ -21,7 +21,9 @@
                 <TableColumn prefWidth="117.0" text="Titel" />
                 <TableColumn prefWidth="93.0" text="Innehåll" />
                 <TableColumn prefWidth="108.0" text="Släppt år" />
-                <TableColumn minWidth="0.0" prefWidth="56.0" text="Hyrtid" />
+                <TableColumn prefWidth="47.0" text="Språk Id"/>
+                <TableColumn prefWidth="65.0" text="Originalspråk Id"/>
+                <TableColumn prefWidth="60.0" text="Hyrtid" />
                 <TableColumn prefWidth="56.0" text="Hyrpris" />
                 <TableColumn prefWidth="97.0" text="Längd" />
                 <TableColumn prefWidth="190.0" text="Ersättningskostnad" />

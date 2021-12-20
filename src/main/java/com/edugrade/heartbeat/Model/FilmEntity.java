@@ -1,25 +1,51 @@
 package com.edugrade.heartbeat.Model;
 
+
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "film", schema = "sakila", catalog = "")
-public class FilmEntity {
-    private short filmId;
-    private String title;
-    private String description;
-    private String releaseYear;
-    private byte rentalDuration;
-    private double rentalRate;
-    private Short length;
-    private double replacementCost;
-    private Timestamp lastUpdate;
+@Table(name = "film", schema = "sakila")
 
+public class FilmEntity {
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "film_id")
+    private short filmId;
+    @Basic
+    @Column(name = "title")
+    private String title;
+    @Basic
+    @Column(name = "description")
+    private String description;
+    @Basic
+    @Column(name = "release_year")
+    private String releaseYear;
+    @Basic
+    @Column(name = "language_id")
+    private byte languageId;
+    @Basic
+    @Column(name = "original_language_id")
+    private Byte originalLanguageId;
+    @Basic
+    @Column(name = "rental_duration")
+    private byte rentalDuration;
+    @Basic
+    @Column(name = "rental_rate")
+    private double rentalRate;
+    @Basic
+    @Column(name = "length")
+    private Short length;
+    @Basic
+    @Column(name = "replacement_cost")
+    private double replacementCost;
+
+    @Basic
+    @Column(name = "last_update")
+    private Timestamp lastUpdate;
+
     public short getFilmId() {
         return filmId;
     }
@@ -28,8 +54,6 @@ public class FilmEntity {
         this.filmId = filmId;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -38,8 +62,6 @@ public class FilmEntity {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -48,8 +70,6 @@ public class FilmEntity {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "release_year")
     public String getReleaseYear() {
         return releaseYear;
     }
@@ -58,8 +78,22 @@ public class FilmEntity {
         this.releaseYear = releaseYear;
     }
 
-    @Basic
-    @Column(name = "rental_duration")
+    public byte getLanguageId() {
+        return languageId;
+    }
+
+    public void setLanguageId(byte languageId) {
+        this.languageId = languageId;
+    }
+
+    public Byte getOriginalLanguageId() {
+        return originalLanguageId;
+    }
+
+    public void setOriginalLanguageId(Byte originalLanguageId) {
+        this.originalLanguageId = originalLanguageId;
+    }
+
     public byte getRentalDuration() {
         return rentalDuration;
     }
@@ -68,8 +102,6 @@ public class FilmEntity {
         this.rentalDuration = rentalDuration;
     }
 
-    @Basic
-    @Column(name = "rental_rate")
     public double getRentalRate() {
         return rentalRate;
     }
@@ -78,8 +110,6 @@ public class FilmEntity {
         this.rentalRate = rentalRate;
     }
 
-    @Basic
-    @Column(name = "length")
     public Short getLength() {
         return length;
     }
@@ -88,8 +118,6 @@ public class FilmEntity {
         this.length = length;
     }
 
-    @Basic
-    @Column(name = "replacement_cost")
     public double getReplacementCost() {
         return replacementCost;
     }
@@ -99,8 +127,6 @@ public class FilmEntity {
     }
 
 
-    @Basic
-    @Column(name = "last_update")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -114,11 +140,11 @@ public class FilmEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FilmEntity that = (FilmEntity) o;
-        return filmId == that.filmId && rentalDuration == that.rentalDuration && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(releaseYear, that.releaseYear) && Objects.equals(rentalRate, that.rentalRate) && Objects.equals(length, that.length) && Objects.equals(replacementCost, that.replacementCost) && Objects.equals(lastUpdate, that.lastUpdate);
+        return filmId == that.filmId && languageId == that.languageId && rentalDuration == that.rentalDuration && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(releaseYear, that.releaseYear) && Objects.equals(originalLanguageId, that.originalLanguageId) && Objects.equals(rentalRate, that.rentalRate) && Objects.equals(length, that.length) && Objects.equals(replacementCost, that.replacementCost) && Objects.equals(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filmId, title, description, releaseYear, rentalDuration, rentalRate, length, replacementCost, lastUpdate);
+        return Objects.hash(filmId, title, description, releaseYear, languageId, originalLanguageId, rentalDuration, rentalRate, length, replacementCost,lastUpdate);
     }
 }
