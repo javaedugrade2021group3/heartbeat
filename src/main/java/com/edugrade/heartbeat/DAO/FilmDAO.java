@@ -15,11 +15,6 @@ public class FilmDAO implements DAOInterface<FilmEntity> {
 
 
     @Override
-    public void deleteEntryById(short id) {
-
-    }
-
-    @Override
     public List<FilmEntity> searchById(short id) {
         return null;
     }

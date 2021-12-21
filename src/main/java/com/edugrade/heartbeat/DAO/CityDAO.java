@@ -1,6 +1,6 @@
 package com.edugrade.heartbeat.DAO;
 
-import com.edugrade.heartbeat.Model.CategoryEntity;
+import com.edugrade.heartbeat.Model.CityEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,26 +10,25 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class CategoryDAO implements DAOInterface <CategoryEntity> {
+public class CityDAO implements DAOInterface <CityEntity>{
 
 
     @Override
-    public List<CategoryEntity> searchById(short id) {
-        return null;
-    }
+    public List<CityEntity> searchById(short id) {return null; }
 
     @Override
-    public ObservableList<CategoryEntity> getAll() {
+    public ObservableList<CityEntity> getAll() {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;
-        List<CategoryEntity> categoryEntityList = null;
+        List<CityEntity> cityEntityList = null;
 
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            TypedQuery<CategoryEntity> query = entityManager.createQuery("from CategoryEntity", CategoryEntity.class);
-            categoryEntityList = query.getResultList();
+            TypedQuery<CityEntity> query = entityManager.createQuery("from CityEntity", CityEntity.class);
+            cityEntityList = query.getResultList();
             transaction.commit();
+
 
         } catch (Exception e) {
             if (transaction != null) {
@@ -39,7 +38,6 @@ public class CategoryDAO implements DAOInterface <CategoryEntity> {
         } finally {
             entityManager.close();
         }
-
-        return FXCollections.observableArrayList(categoryEntityList);
+        return FXCollections.observableArrayList(cityEntityList);
     }
 }

@@ -12,11 +12,6 @@ import java.util.List;
 public class ActorDAO implements DAOInterface<ActorEntity>{
 
     @Override
-    public void deleteEntryById(short id) {
-
-    }
-
-    @Override
     public List<ActorEntity> searchById(short id) {
         return null;
     }
