@@ -21,7 +21,7 @@ public class CityEntity {
 
     @Basic
     @Column(name = "city")
-    public String getCity
+    public String getCity;
     public void setCity(String city) {this.city = city;}
 
     @Basic
