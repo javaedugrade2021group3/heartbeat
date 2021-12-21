@@ -14,7 +14,43 @@ import java.util.Date;
 
 public class CustomerDAO implements DAOInterface<CustomerEntity> {
 
+    /**
+     * This method is used to update a customer entity object, depending on its id.
+     * The parameters come from the text fields during runtime.
+     * */
+    public void updateCustomer(short id, String firstName, String lastName, byte storeId, String email, short addressId, byte active) {
+        EntityManager entityManager = HibernateUtil.getEntityManager();
+        EntityTransaction transaction = null;
+        Date date = new Date();
 
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            CustomerEntity customer = entityManager.find(CustomerEntity.class, id);
+            customer.setFirstName(firstName);
+            customer.setLastName(lastName);
+            customer.setStoreId(storeId);
+            customer.setEmail(email);
+            customer.setAddressId(addressId);
+            customer.setActive(active);
+            customer.setLastUpdate(new Timestamp(date.getTime()));
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+
+    }
+
+    /**
+     * This method is used to add a new customer entity object to the database.
+     * The parameters are filled in at the text fields during runtime.
+     * */
     public void addNewCustomer(String firstName, String lastName, byte storeId, String email, short addressId, byte active) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;
@@ -46,6 +82,10 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
         }
     }
 
+    /**
+     * This method is used to delete a customer entity object from the database, depending on the id.
+     * The parameter is chosen during runtime, by clicking on an entity in the table.
+     * */
     @Override
     public void deleteEntryById(short id) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
@@ -69,6 +109,10 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
         }
     }
 
+    /**
+     * This method is used to search for a single customer in the database by using the customer's id.
+     * The parameter is entered into a text field at runtime.
+     * */
     @Override
     public ObservableList<CustomerEntity> searchById(short id) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
@@ -93,6 +137,9 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
         return FXCollections.observableArrayList(customerEntityList);
     }
 
+    /**
+     * This method is used to search for all customers in the database.
+     * */
     @Override
     public ObservableList<CustomerEntity> getAll() {
 
