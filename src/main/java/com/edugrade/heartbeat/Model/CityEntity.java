@@ -21,13 +21,20 @@ public class CityEntity {
 
     @Basic
     @Column(name = "city")
-    public String getCity;
-    public void setCity(String city) {this.city = city;}
-
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
     @Basic
     @Column(name = "country_Id")
-    public Short getCountryId() {return countryId;}
-    public void setCountryId(Short countryId) {this.countryId= countryId;}
+    public Short getCountryId() {
+        return countryId;
+    }
+    public void setCountryId(Short countryId) {
+        this.countryId = countryId;
+    }
 
     @Basic
     @Column(name = "last_update")
