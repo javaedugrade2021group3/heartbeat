@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class ActorDAO implements DAOInterface<ActorEntity>{
-    // public int updateData(T data);
     @Override
     public List<ActorEntity> searchById(short id) {
         return null;
