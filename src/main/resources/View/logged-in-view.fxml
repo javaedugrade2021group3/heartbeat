@@ -41,6 +41,18 @@
                <Tab fx:id="storeTab" text="Affär">
                    <fx:include source="store-tab-view.fxml"/>
                </Tab>
+               <Tab fx:id="languageTab" text="Språk">
+                   <fx:include source="language-tab-view.fxml"/>
+               </Tab>
+               <Tab fx:id="RentalTab" text="Hyra">
+                   <fx:include source="rental-tab-view.fxml"/>
+               </Tab>
+               <Tab fx:id="PaymentTab" text="Betalning">
+                   <fx:include source="payment-tab-view.fxml"/>
+               </Tab>
+               <Tab fx:id="CityTab" text="Stad">
+                   <fx:include source="city-tab-view.fxml"/>
+               </Tab>
         </tabs>
          <cursor>
             <Cursor fx:constant="HAND" />

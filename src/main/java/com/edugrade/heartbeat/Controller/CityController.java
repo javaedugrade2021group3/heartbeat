@@ -48,8 +48,6 @@ public class CityController implements Initializable  {
     private void tableResult(ObservableList<CityEntity> cityEntityObservableList) {
         city_table.setItems(cityEntityObservableList);
 
-        city_table.setItems(cityEntityObservableList);
-
         TableColumn column0 = (TableColumn) city_table.getColumns().get(0);
         column0.setCellValueFactory(new PropertyValueFactory("cityId"));
 
@@ -57,10 +55,10 @@ public class CityController implements Initializable  {
         column1.setCellValueFactory(new PropertyValueFactory("city"));
 
         TableColumn column2 = (TableColumn) city_table.getColumns().get(2);
-        column1.setCellValueFactory(new PropertyValueFactory("countryId"));
+        column2.setCellValueFactory(new PropertyValueFactory("countryId"));
 
         TableColumn column3 = (TableColumn) city_table.getColumns().get(3);
-        column2.setCellValueFactory(new PropertyValueFactory("lastUpdate"));
+        column3.setCellValueFactory(new PropertyValueFactory("lastUpdate"));
 
     }
 }
