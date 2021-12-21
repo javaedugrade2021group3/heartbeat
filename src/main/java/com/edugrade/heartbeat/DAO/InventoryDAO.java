@@ -13,6 +13,7 @@ import java.util.List;
 
 public class InventoryDAO implements DAOInterface <InventoryEntity>{
 
+
         @Override
         public void deleteEntryById(short id) {
 

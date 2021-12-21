@@ -14,6 +14,11 @@ public class LanguageDAO implements DAOInterface <LanguageEntity>{
 
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<LanguageEntity> searchById(short id) {return null; }
 
     @Override

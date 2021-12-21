@@ -14,6 +14,11 @@ public class CityDAO implements DAOInterface <CityEntity>{
 
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<CityEntity> searchById(short id) {return null; }
 
     @Override
