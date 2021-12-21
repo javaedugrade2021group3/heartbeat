@@ -14,6 +14,11 @@ public class CategoryDAO implements DAOInterface <CategoryEntity> {
 
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<CategoryEntity> searchById(short id) {
         return null;
     }

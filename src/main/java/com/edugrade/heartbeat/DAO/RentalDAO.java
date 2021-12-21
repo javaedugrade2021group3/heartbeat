@@ -14,6 +14,11 @@ import java.util.List;
 public class RentalDAO implements DAOInterface <RentalEntity> {
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<RentalEntity> searchById(short id) {
     return null;
     }

@@ -13,6 +13,11 @@ public class PaymentDAO implements DAOInterface<PaymentEntity>{
     //test
 
     @Override
+    public void deleteEntryById(short id) {
+
+    }
+
+    @Override
     public List<PaymentEntity> searchById(short id) {
         return null;
     }
