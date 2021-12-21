@@ -16,7 +16,7 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
 
     /**
      * This method is used to update a customer entity object, depending on its id.
-     * The parameters come from the text fields during runtime.
+     * 1The parameters come from the text fields during runtime.
      * */
     public void updateCustomer(short id, String firstName, String lastName, byte storeId, String email, short addressId, byte active) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
