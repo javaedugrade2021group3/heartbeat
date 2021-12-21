@@ -7,12 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
 
+    /**
+     * All the JavaFX elements
+     * */
     @FXML
     private TableView<CustomerEntity> customer_table;
     @FXML
@@ -41,7 +43,12 @@ public class CustomerController implements Initializable {
     private Button delete_button;
     @FXML
     private TextField tf_id;
+    @FXML
+    private Button update_button;
 
+    /**
+     * This method is executed when the program starts, all the functionality is entered here.
+     * */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         show_all_button.setOnAction(event -> getAllCustomers());
@@ -50,13 +57,36 @@ public class CustomerController implements Initializable {
         selectFromTable();
         create_new_entry_button.setOnAction(event -> addNewEntry());
         delete_button.setOnAction(event -> deleteSelectedItem());
+        update_button.setOnAction(event -> updateEntry());
     }
 
+    /**
+     * This method is used to update the entry.
+     * */
+    private void updateEntry() {
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.updateCustomer(
+                Short.parseShort(tf_id.getText()),
+                tf_firstName.getText(),
+                tf_lastName.getText(),
+                Byte.parseByte(tf_store.getText()),
+                tf_email.getText(),
+                Short.parseShort(tf_address.getText()),
+                Byte.parseByte(tf_active.getText())
+        );
+    }
+
+    /**
+     * This method is used to delete an entry.
+     * */
     private void deleteSelectedItem() {
         CustomerDAO customerDAO = new CustomerDAO();
         customerDAO.deleteEntryById(Short.parseShort(tf_id.getText()));
     }
 
+    /**
+     * This method is used to add a new entry.
+     * */
     private void addNewEntry() {
         CustomerDAO customerDAO = new CustomerDAO();
         customerDAO.addNewCustomer(
@@ -69,6 +99,9 @@ public class CustomerController implements Initializable {
         );
     }
 
+    /**
+     * This method is used to clear the text fields from data.
+     * */
     private void clearSelectedFields() {
         if (tf_firstName != null) {
             tf_firstName.setText("");
@@ -82,6 +115,9 @@ public class CustomerController implements Initializable {
 
     }
 
+    /**
+     * This method is used to select the data from a customer in the table and display the data in text fields.
+     * */
     private void selectFromTable() {
         TableView.TableViewSelectionModel<CustomerEntity> selectionModel = customer_table.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
@@ -97,6 +133,9 @@ public class CustomerController implements Initializable {
         }));
     }
 
+    /**
+     * This method is used to handle the search button.
+     * */
     private void searchButton() {
         search_button.setOnAction(event -> {
             if (tf_search.getText().equals("")) {
@@ -108,18 +147,29 @@ public class CustomerController implements Initializable {
         });
     }
 
+    /**
+     * This method is used to return a single customer to the customer table.
+     * @param id The customer id.
+     * */
     private void getCustomerById(short id) {
         CustomerDAO customerDAO = new CustomerDAO();
         ObservableList<CustomerEntity> customerEntityObservableList = customerDAO.searchById(id);
         tableResult(customerEntityObservableList);
     }
 
+    /**
+     * This method is used to return all customers, filling the table with data.
+     * */
     private void getAllCustomers() {
         CustomerDAO customerDAO = new CustomerDAO();
         ObservableList<CustomerEntity> customerEntityObservableList = customerDAO.getAll();
         tableResult(customerEntityObservableList);
     }
 
+    /**
+     * This method handles the data that should be shown in the table.
+     * @param customerEntityObservableList ObservableList from the CustomerDAO class.
+     * */
     private void tableResult(ObservableList<CustomerEntity> customerEntityObservableList) {
         customer_table.setItems(customerEntityObservableList);
 

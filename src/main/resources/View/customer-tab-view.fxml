@@ -38,7 +38,7 @@
         </Button>
 
         <!-- Update Button -->
-        <Button layoutX="896.0" layoutY="25.0" mnemonicParsing="false" text="Uppdatera" textFill="#031f3c" />
+        <Button fx:id="update_button" layoutX="896.0" layoutY="25.0" mnemonicParsing="false" text="Uppdatera" textFill="#031f3c" />
 
         <!-- Delete Button -->
         <Button fx:id="delete_button" layoutX="895.0" layoutY="119.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #c2042a#c2042a;" text="Ta bort" textFill="#f4f4f5" />
