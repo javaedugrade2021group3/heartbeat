@@ -1,6 +1,6 @@
 package com.edugrade.heartbeat.DAO;
 
-import com.edugrade.heartbeat.Model.CategoryEntity;
+import com.edugrade.heartbeat.Model.LanguageEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,26 +10,25 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class CategoryDAO implements DAOInterface <CategoryEntity> {
+public class LanguageDAO implements DAOInterface <LanguageEntity>{
 
 
     @Override
-    public List<CategoryEntity> searchById(short id) {
-        return null;
-    }
+    public List<LanguageEntity> searchById(short id) {return null; }
 
     @Override
-    public ObservableList<CategoryEntity> getAll() {
+    public ObservableList<LanguageEntity> getAll() {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;
-        List<CategoryEntity> categoryEntityList = null;
+        List<LanguageEntity> languageEntityList = null;
 
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            TypedQuery<CategoryEntity> query = entityManager.createQuery("from CategoryEntity", CategoryEntity.class);
-            categoryEntityList = query.getResultList();
+            TypedQuery<LanguageEntity> query = entityManager.createQuery("from LanguageEntity ",LanguageEntity.class);
+            languageEntityList = query.getResultList();
             transaction.commit();
+
 
         } catch (Exception e) {
             if (transaction != null) {
@@ -39,7 +38,6 @@ public class CategoryDAO implements DAOInterface <CategoryEntity> {
         } finally {
             entityManager.close();
         }
-
-        return FXCollections.observableArrayList(categoryEntityList);
+        return FXCollections.observableArrayList(languageEntityList);
     }
 }

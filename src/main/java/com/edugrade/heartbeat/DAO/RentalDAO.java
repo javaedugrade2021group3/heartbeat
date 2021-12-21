@@ -1,6 +1,7 @@
 package com.edugrade.heartbeat.DAO;
 
-import com.edugrade.heartbeat.Model.CategoryEntity;
+
+import com.edugrade.heartbeat.Model.RentalEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,25 +11,25 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class CategoryDAO implements DAOInterface <CategoryEntity> {
-
+public class RentalDAO implements DAOInterface <RentalEntity> {
 
     @Override
-    public List<CategoryEntity> searchById(short id) {
-        return null;
+    public List<RentalEntity> searchById(short id) {
+    return null;
     }
 
     @Override
-    public ObservableList<CategoryEntity> getAll() {
+    public ObservableList<RentalEntity> getAll() {
+
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;
-        List<CategoryEntity> categoryEntityList = null;
+        List<RentalEntity> rentalEntityList = null;
 
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            TypedQuery<CategoryEntity> query = entityManager.createQuery("from CategoryEntity", CategoryEntity.class);
-            categoryEntityList = query.getResultList();
+            TypedQuery<RentalEntity> query = entityManager.createQuery("from RentalEntity", RentalEntity.class);
+            rentalEntityList = query.getResultList();
             transaction.commit();
 
         } catch (Exception e) {
@@ -39,7 +40,6 @@ public class CategoryDAO implements DAOInterface <CategoryEntity> {
         } finally {
             entityManager.close();
         }
-
-        return FXCollections.observableArrayList(categoryEntityList);
+        return FXCollections.observableArrayList(rentalEntityList);
     }
 }
