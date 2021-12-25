@@ -9,10 +9,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.CustomerController">
     <children>
 
-        <!-- Background image -->
+        <!-- Background image
       <ImageView fitHeight="600.0" fitWidth="1000.0" focusTraversable="true" layoutX="-1.0" nodeOrientation="INHERIT" pickOnBounds="true" AnchorPane.bottomAnchor="0.0">
          <image>
             <Image url="@../Assets/movies.jpg" />
@@ -21,20 +22,20 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-
+        -->
         <!-- Buttons -->
         <!-- Search Button -->
         <Button fx:id="search_button" layoutX="140.0" layoutY="25.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="43.0" text="Sök">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
 
         <!-- Show all Button -->
         <Button fx:id="show_all_button" layoutX="23.0" layoutY="59.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Visa alla kunder">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </Button>
 
         <!-- Update Button -->
@@ -49,33 +50,48 @@
         <!-- Clear fields Button -->
         <Button fx:id="clear_fields_button" layoutX="832.0" layoutY="26.0" mnemonicParsing="false" text="Rensa" textFill="#031f3c" />
 
-        <!-- TableView -->
-        <TableView fx:id="customer_table" cacheShape="false" centerShape="false" layoutX="23.0" layoutY="163.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="381.0" prefWidth="954.0" scaleShape="false">
+        <!-- Customer Table -->
+        <TableView fx:id="customer_table" cacheShape="false" centerShape="false" layoutX="24.0" layoutY="225.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="275.0" prefWidth="948.0" scaleShape="false">
             <columns>
                 <TableColumn prefWidth="60.0" text="Kund Id" />
-                <TableColumn prefWidth="64.0" text="Affär Id" />
-                <TableColumn prefWidth="99.0" text="Förnamn" />
-                <TableColumn prefWidth="103.0" text="Efternamn" />
-                <TableColumn minWidth="0.0" prefWidth="144.0" text="Email" />
-                <TableColumn prefWidth="108.0" text="Adress Id" />
-                <TableColumn minWidth="0.0" prefWidth="60.0" text="Aktiv" />
-                <TableColumn prefWidth="133.0" text="Skapades" />
-                <TableColumn prefWidth="123.0" text="Senast Uppdaterad" />
+                <TableColumn prefWidth="92.5" text="Affär Adress Id" />
+                <TableColumn prefWidth="85.0" text="Förnamn" />
+                <TableColumn prefWidth="89.0" text="Efternamn" />
+                <TableColumn minWidth="0.0" prefWidth="210.0" text="Email" />
+                <TableColumn prefWidth="90.0" text="Kund Adress Id" />
+                <TableColumn minWidth="0.0" prefWidth="43.0" text="Aktiv" />
+                <TableColumn prefWidth="121.0" text="Skapades" />
+                <TableColumn prefWidth="156.5" text="Senast Uppdaterad" />
             </columns>
         </TableView>
 
         <!-- TextFields -->
         <TextField fx:id="tf_search" layoutX="23.0" layoutY="26.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund id" />
-        <TextField fx:id="tf_firstName" layoutX="535.0" layoutY="26.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
-        <TextField fx:id="tf_lastName" layoutX="535.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
-        <TextField fx:id="tf_address" layoutX="657.0" layoutY="26.0" prefHeight="26.0" prefWidth="160.0" promptText="Adress" />
-        <TextField fx:id="tf_store" layoutX="657.0" layoutY="72.0" prefHeight="26.0" prefWidth="160.0" promptText="Affär" />
-        <TextField fx:id="tf_email" layoutX="535.0" layoutY="119.0" prefHeight="26.0" prefWidth="344.0" promptText="Email" />
+        <TextField fx:id="tf_firstName" layoutX="644.0" layoutY="26.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
+        <TextField fx:id="tf_lastName" layoutX="644.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
+        <TextField fx:id="tf_address" layoutX="756.0" layoutY="26.0" prefHeight="26.0" prefWidth="67.0" promptText="Adress Id" />
+        <TextField fx:id="tf_store" layoutX="756.0" layoutY="72.0" prefHeight="26.0" prefWidth="67.0" promptText="Affär Id" />
+        <TextField fx:id="tf_email" layoutX="644.0" layoutY="119.0" prefHeight="26.0" prefWidth="239.0" promptText="Email" />
         <TextField fx:id="tf_active" layoutX="832.0" layoutY="72.0" prefHeight="26.0" prefWidth="51.0" promptText="Aktiv" />
-        <TextField fx:id="tf_id" alignment="CENTER" editable="false" layoutX="464.0" layoutY="26.0" prefHeight="26.0" prefWidth="51.0" promptText="Id" />
+        <TextField fx:id="tf_id" alignment="CENTER" editable="false" layoutX="581.0" layoutY="25.0" prefHeight="26.0" prefWidth="51.0" promptText="Id" />
 
         <!-- Test Button to display values from the selected fields -->
-        <Button fx:id="selected_button" layoutX="312.0" layoutY="86.0" mnemonicParsing="false" text="get selected values" />
-    </children>
+        <Button fx:id="test_button" layoutX="329.0" layoutY="25.0" mnemonicParsing="false" text="test button" />
 
+        <!-- Address Table  -->
+        <TableView fx:id="address_table" layoutX="25.0" layoutY="91.0" prefHeight="64.0" prefWidth="316.0">
+            <columns>
+                <TableColumn prefWidth="94.0" text="Kund Adress Id" />
+                <TableColumn prefWidth="215.0" text="Kund Adress" />
+            </columns>
+        </TableView>
+
+        <!-- Store Table -->
+        <TableView fx:id="store_table" layoutX="25.0" layoutY="155.0" prefHeight="64.0" prefWidth="316.0">
+            <columns>
+                <TableColumn prefWidth="94.0" text="Affär Adress Id" />
+                <TableColumn prefWidth="215.0" text="Affär Adress" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

@@ -16,7 +16,7 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
 
     /**
      * This method is used to update a customer entity object, depending on its id.
-     * 1The parameters come from the text fields during runtime.
+     * The parameters come from the text fields during runtime.
      * */
     public void updateCustomer(short id, String firstName, String lastName, byte storeId, String email, short addressId, byte active) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
@@ -27,6 +27,7 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
             transaction = entityManager.getTransaction();
             transaction.begin();
             CustomerEntity customer = entityManager.find(CustomerEntity.class, id);
+            entityManager.detach(customer);
             customer.setFirstName(firstName);
             customer.setLastName(lastName);
             customer.setStoreId(storeId);
@@ -34,6 +35,8 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
             customer.setAddressId(addressId);
             customer.setActive(active);
             customer.setLastUpdate(new Timestamp(date.getTime()));
+            entityManager.merge(customer);
+            entityManager.flush();
             transaction.commit();
 
         } catch (Exception e) {
@@ -68,7 +71,6 @@ public class CustomerDAO implements DAOInterface<CustomerEntity> {
             customer.setAddressId(addressId);
             customer.setCreateDate(new Timestamp(date.getTime()));
             customer.setLastUpdate(new Timestamp(date.getTime()));
-
             entityManager.persist(customer);
             transaction.commit();
 

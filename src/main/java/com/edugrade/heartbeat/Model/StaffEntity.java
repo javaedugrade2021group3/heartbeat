@@ -142,19 +142,4 @@ public class StaffEntity {
     public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StaffEntity that = (StaffEntity) o;
-        return staffId == that.staffId && addressId == that.addressId && storeId == that.storeId && active == that.active && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Arrays.equals(picture, that.picture) && Objects.equals(email, that.email) && Objects.equals(username, that.username) && Objects.equals(password, that.password) && Objects.equals(lastUpdate, that.lastUpdate);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(staffId, firstName, lastName, addressId, email, storeId, active, username, password, lastUpdate);
-        result = 31 * result + Arrays.hashCode(picture);
-        return result;
-    }
 }
