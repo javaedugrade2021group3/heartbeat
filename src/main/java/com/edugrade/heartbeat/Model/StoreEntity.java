@@ -8,33 +8,48 @@ import java.sql.Timestamp;
 @Table(name = "store", schema = "sakila")
 public class StoreEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private byte storeId;
-    private byte managerStaffId;
-    private short addressId;
-    private Timestamp lastUpdate;
-
     @Id
     @Column(name = "store_id")
-    public byte getStoreId() { return storeId; }
-
-    public void setStoreId(byte storeId){ this.storeId = storeId; }
-
+    private byte storeId;
     @Basic
     @Column(name = "manager_staff_id")
-    public byte getManagerStaffId() { return managerStaffId; }
-
-    public void setManagerStaffId(byte managerStaffId) { this.managerStaffId = managerStaffId; }
-
+    private byte managerStaffId;
     @Basic
     @Column(name = "address_id")
-    public short getAddressId() { return addressId; }
-
-    public void setAddressId(short addressId) { this.addressId = addressId; }
-
+    private short addressId;
     @Basic
     @Column(name = "last_update")
-    public Timestamp getLastUpdate() { return lastUpdate; }
+    private Timestamp lastUpdate;
 
-    public void setLastUpdate(Timestamp lastUpdate) { this.lastUpdate = lastUpdate; }
+    public byte getStoreId() {
+        return storeId;
+    }
 
+    public void setStoreId(byte storeId) {
+        this.storeId = storeId;
+    }
+
+    public byte getManagerStaffId() {
+        return managerStaffId;
+    }
+
+    public void setManagerStaffId(byte managerStaffId) {
+        this.managerStaffId = managerStaffId;
+    }
+
+    public short getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(short addressId) {
+        this.addressId = addressId;
+    }
+
+    public Timestamp getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
 }
