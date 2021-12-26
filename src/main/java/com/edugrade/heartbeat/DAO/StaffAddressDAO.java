@@ -1,6 +1,6 @@
 package com.edugrade.heartbeat.DAO;
 
-import com.edugrade.heartbeat.Model.StoreAddressEntity;
+import com.edugrade.heartbeat.Model.StaffAddressEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,24 +10,24 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class StoreAddressDAO implements DAOInterface<StoreAddressEntity> {
+public class StaffAddressDAO implements DAOInterface<StaffAddressEntity> {
     @Override
     public void deleteEntryById(short id) {
 
     }
 
     @Override
-    public ObservableList<StoreAddressEntity> searchById(short id) {
+    public ObservableList<StaffAddressEntity> searchById(short id) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         EntityTransaction transaction = null;
-        List<StoreAddressEntity> customerStoreAddressEntities = null;
+        List<StaffAddressEntity> staffAddressEntityList = null;
 
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            TypedQuery<StoreAddressEntity> query = entityManager.createQuery("from StoreAddressEntity where storeId =?1", StoreAddressEntity.class);
+            TypedQuery<StaffAddressEntity> query = entityManager.createQuery("from StaffAddressEntity where staffId =?1", StaffAddressEntity.class);
             query.setParameter(1, id);
-            customerStoreAddressEntities = query.getResultList();
+            staffAddressEntityList = query.getResultList();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -37,7 +37,7 @@ public class StoreAddressDAO implements DAOInterface<StoreAddressEntity> {
         } finally {
             entityManager.close();
         }
-        return FXCollections.observableArrayList(customerStoreAddressEntities);
+        return FXCollections.observableArrayList(staffAddressEntityList);
     }
 
     @Override

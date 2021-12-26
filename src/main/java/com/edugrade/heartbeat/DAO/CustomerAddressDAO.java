@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import javax.persistence.*;
 import java.util.List;
 
-public class CustomerAddressDAO implements DAOInterface{
+public class CustomerAddressDAO implements DAOInterface<CustomerAddressEntity> {
 
     @Override
     public void deleteEntryById(short id) {
