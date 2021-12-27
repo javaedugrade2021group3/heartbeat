@@ -31,10 +31,6 @@ public class CustomerController implements Initializable {
     @FXML
     private TableView<CustomerEntity> customer_table;
     @FXML
-    private TableView<CustomerAddressEntity> address_table;
-    @FXML
-    private TableView<StoreAddressEntity> store_table;
-    @FXML
     private Button search_button;
     @FXML
     private TextField tf_search;
@@ -63,6 +59,15 @@ public class CustomerController implements Initializable {
     @FXML
     private Button update_button;
     @FXML
+    private TextField tf_storeAddress;
+    @FXML
+    private TextField tf_customerAddress;
+    @FXML
+    private TextField tf_storeAddressId;
+    @FXML
+    private TextField tf_customerAddressId;
+
+    @FXML
     private Button test_button;
 
     private final CustomerDAO customerDAO = new CustomerDAO();
@@ -80,19 +85,6 @@ public class CustomerController implements Initializable {
         create_new_entry_button.setOnAction(event -> addNewEntry());
         delete_button.setOnAction(event -> deleteSelectedItem());
         update_button.setOnAction(event -> updateEntry());
-    }
-
-    /**
-     * Enable keyboard shortcuts command + s on mac, however there's no underscore in 'Sök'
-     * doesn't seem to work propperly on mac. (CURRENTLY NOT IMPLEMENTED)
-     * */
-    private void buttonController() {
-        search_button.setText("_Sök");
-        search_button.setMnemonicParsing(true);
-        search_button.getScene().getAccelerators().put(
-                new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
-                () -> search_button.fire()
-        );
     }
 
     /**
@@ -143,6 +135,10 @@ public class CustomerController implements Initializable {
             tf_address.setText("");
             tf_active.setText("");
             tf_id.setText("");
+            tf_customerAddress.setText("");
+            tf_customerAddressId.setText("");
+            tf_storeAddress.setText("");
+            tf_storeAddressId.setText("");
         }
 
     }
@@ -199,47 +195,25 @@ public class CustomerController implements Initializable {
     }
 
     /**
-     * This method is used to get the Customer's Address information into the address table
-     * @param id The customer id.
+     * This method is used to get the Customer's Address information in text fields.
+     * @param customerId The customer id.
      * */
-    private void getCustomerAddress(short id) {
+    private void getCustomerAddress(short customerId) {
         CustomerAddressDAO customerAddressDAO = new CustomerAddressDAO();
-        ObservableList<CustomerAddressEntity> customerAddressEntityObservableList = customerAddressDAO.searchById(id);
-        address_table.setItems(customerAddressEntityObservableList);
-
-
-        TableColumn column0 = address_table.getColumns().get(0);
-        column0.setCellValueFactory((Callback<TableColumn.CellDataFeatures<CustomerAddressEntity, String>, ObservableValue>) param -> {
-            AddressEntity address;
-            address = param.getValue().getAddressEntity();
-            return new SimpleIntegerProperty(address.getAddressId());
-        });
-        TableColumn column1 = address_table.getColumns().get(1);
-        column1.setCellValueFactory((Callback<TableColumn.CellDataFeatures<CustomerAddressEntity, String>, ObservableValue>) param -> {
-            AddressEntity address;
-            address = param.getValue().getAddressEntity();
-            return new SimpleStringProperty(address.getAddress());
-        });
+        ObservableList<CustomerAddressEntity> customerAddressEntityObservableList = customerAddressDAO.searchById(customerId);
+        tf_customerAddressId.setText(String.valueOf(customerAddressEntityObservableList.get(0).getAddressEntity().getAddressId()));
+        tf_customerAddress.setText(customerAddressEntityObservableList.get(0).getAddressEntity().getAddress());
     }
 
     /**
-     * This method is used to get the Store's Address information into the store table.
-     * @param id The customer id.
+     * This method is used to get the Store's Address information in text fields.
+     * @param storeID The store id.
      * */
-    private void getStoreAddress(short id) {
+    private void getStoreAddress(short storeID) {
         StoreAddressDAO storeAddressDAO = new StoreAddressDAO();
-        ObservableList<StoreAddressEntity> c = storeAddressDAO.searchById(id);
-        store_table.setItems(c);
-
-        TableColumn column0 = store_table.getColumns().get(0);
-        column0.setCellValueFactory(new PropertyValueFactory<StoreAddressEntity, String>("storeId"));
-
-        TableColumn column1 = store_table.getColumns().get(1);
-        column1.setCellValueFactory((Callback<TableColumn.CellDataFeatures<StoreAddressEntity, String>, ObservableValue>) param -> {
-            AddressEntity address;
-            address = param.getValue().getAddressEntity();
-            return new SimpleStringProperty(address.getAddress());
-        });
+        ObservableList<StoreAddressEntity> storeAddressEntityObservableList = storeAddressDAO.searchById(storeID);
+        tf_storeAddressId.setText((String.valueOf(storeAddressEntityObservableList.get(0).getStoreId())));
+        tf_storeAddress.setText(storeAddressEntityObservableList.get(0).getAddressEntity().getAddress());
     }
 
     /**

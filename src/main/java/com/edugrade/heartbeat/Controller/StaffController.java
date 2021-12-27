@@ -25,10 +25,6 @@ public class StaffController implements Initializable {
     @FXML
     private TableView<StaffEntity> staff_table;
     @FXML
-    private TableView<StaffAddressEntity> address_table;
-    @FXML
-    private TableView<StoreAddressEntity> store_table;
-    @FXML
     private Button search_button;
     @FXML
     private TextField tf_search;
@@ -60,6 +56,14 @@ public class StaffController implements Initializable {
     private Button delete_button;
     @FXML
     private Button update_button;
+    @FXML
+    private TextField tf_storeAddress;
+    @FXML
+    private TextField tf_storeAddressId;
+    @FXML
+    private TextField tf_staffAddress;
+    @FXML
+    private TextField tf_staffAddressId;
 
     @FXML
     private Button test_button;
@@ -79,40 +83,17 @@ public class StaffController implements Initializable {
 
     private void getStoreAddress(short id) {
         StoreAddressDAO storeAddressDAO = new StoreAddressDAO();
-        ObservableList<StoreAddressEntity> c = storeAddressDAO.searchById(id);
-        store_table.setItems(c);
-
-        TableColumn column0 = store_table.getColumns().get(0);
-        column0.setCellValueFactory(new PropertyValueFactory<StoreAddressEntity, String>("storeId"));
-
-        TableColumn column1 = store_table.getColumns().get(1);
-        column1.setCellValueFactory((Callback<TableColumn.CellDataFeatures<StoreAddressEntity, String>, ObservableValue>) param -> {
-            AddressEntity address;
-            address = param.getValue().getAddressEntity();
-            return new SimpleStringProperty(address.getAddress());
-        });
+        ObservableList<StoreAddressEntity> storeAddressEntityObservableList = storeAddressDAO.searchById(id);
+        tf_storeAddressId.setText(String.valueOf(storeAddressEntityObservableList.get(0).getStoreId()));
+        tf_storeAddress.setText(storeAddressEntityObservableList.get(0).getAddressEntity().getAddress());
 
     }
 
     private void getStaffAddress(short id) {
         StaffAddressDAO staffAddressDAO = new StaffAddressDAO();
         ObservableList<StaffAddressEntity> staffAddressEntityObservableList = staffAddressDAO.searchById(id);
-        address_table.setItems(staffAddressEntityObservableList);
-
-        TableColumn column0 = address_table.getColumns().get(0);
-        column0.setCellValueFactory((Callback<TableColumn.CellDataFeatures<StaffAddressEntity, String>, ObservableValue>) param -> {
-            AddressEntity address;
-            address = param.getValue().getAddressEntity();
-            return new SimpleIntegerProperty(address.getAddressId());
-        });
-
-        TableColumn column1 = address_table.getColumns().get(1);
-        column1.setCellValueFactory((Callback<TableColumn.CellDataFeatures<StaffAddressEntity, String>, ObservableValue>) param -> {
-            AddressEntity address;
-            address = param.getValue().getAddressEntity();
-            return new SimpleStringProperty(address.getAddress());
-        });
-
+        tf_staffAddressId.setText(String.valueOf(staffAddressEntityObservableList.get(0).getAddressEntity().getAddressId()));
+        tf_staffAddress.setText(staffAddressEntityObservableList.get(0).getAddressEntity().getAddress());
     }
 
     private void clearSelectedFields() {
