@@ -11,6 +11,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -30,8 +32,6 @@ public class CustomerController implements Initializable {
      * */
     @FXML
     private TableView<CustomerEntity> customer_table;
-    @FXML
-    private Button search_button;
     @FXML
     private TextField tf_search;
     @FXML
@@ -80,7 +80,6 @@ public class CustomerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         show_all_button.setOnAction(event -> getAllCustomers());
         clear_fields_button.setOnAction(event -> clearSelectedFields());
-        searchButton();
         selectFromTable();
         create_new_entry_button.setOnAction(event -> addNewEntry());
         delete_button.setOnAction(event -> deleteSelectedItem());
@@ -164,34 +163,33 @@ public class CustomerController implements Initializable {
     }
 
     /**
-     * This method is used to handle the search button.
-     * */
-    private void searchButton() {
-        search_button.setOnAction(event -> {
-            if (tf_search.getText().equals("")) {
-                getAllCustomers();
-            } else {
-                getCustomerById(Short.parseShort(tf_search.getText()));
-                tf_search.clear();
-            }
-        });
-    }
-
-    /**
-     * This method is used to return a single customer to the customer table.
-     * @param id The customer id.
-     * */
-    private void getCustomerById(short id) {
-        ObservableList<CustomerEntity> customerEntityObservableList = customerDAO.searchById(id);
-        tableResult(customerEntityObservableList);
-    }
-
-    /**
      * This method is used to return all customers, filling the customer table with data.
+     * Then the search field can be used to filter the data.
      * */
     private void getAllCustomers() {
         ObservableList<CustomerEntity> customerEntityObservableList = customerDAO.getAll();
         tableResult(customerEntityObservableList);
+
+        FilteredList<CustomerEntity> filteredList = new FilteredList<>(customerEntityObservableList, p -> true);
+
+        tf_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(customerEntity -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (customerEntity.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (customerEntity.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<CustomerEntity> sortedList = new SortedList<>(filteredList);
+        sortedList.comparatorProperty().bind(customer_table.comparatorProperty());
+        customer_table.setItems(sortedList);
+
     }
 
     /**
