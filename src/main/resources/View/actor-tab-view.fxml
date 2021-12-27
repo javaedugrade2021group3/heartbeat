@@ -2,12 +2,12 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="443.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.ActorController">
+<AnchorPane prefHeight="443.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.ActorController">
     <children>
        <Button layoutX="172.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
-        <TableView fx:id="actor_table" layoutY="134.0" prefHeight="292.0" prefWidth="800.0">
+        <TableView fx:id="actor_table" layoutX="70.0" layoutY="134.0" prefHeight="292.0" prefWidth="462.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="Skådespelar Id" />
                 <TableColumn prefWidth="89.0" text="Förnamn" />
@@ -15,9 +15,15 @@
                 <TableColumn prefWidth="171.0" text="Senast Uppdaterad" />
             </columns>
         </TableView>
-        <TextField layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter skådespelare" />
-        <TextField layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
-        <TextField layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
-        <Button layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <TextField fx:id="tf_actor_search" layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter skådespelare" />
+        <TextField fx:id="tf_firstName" layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
+        <TextField fx:id="tf_lastName" layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
+        <Button fx:id="update_actor_button" layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+      <ListView fx:id="film_view" layoutX="544.0" layoutY="134.0" prefHeight="292.0" prefWidth="356.0" />
+      <Label fx:id="film_label" alignment="CENTER" layoutX="507.0" layoutY="117.0" prefHeight="17.0" prefWidth="339.0" />
+      <Label fx:id="fx_message" layoutX="63.0" layoutY="83.0" prefHeight="17.0" prefWidth="356.0" textFill="#10e878">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
     </children>
 </AnchorPane>
