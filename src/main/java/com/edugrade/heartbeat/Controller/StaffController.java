@@ -11,6 +11,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -24,8 +26,6 @@ import java.util.ResourceBundle;
 public class StaffController implements Initializable {
     @FXML
     private TableView<StaffEntity> staff_table;
-    @FXML
-    private Button search_button;
     @FXML
     private TextField tf_search;
     @FXML
@@ -76,7 +76,6 @@ public class StaffController implements Initializable {
         delete_button.setOnAction(event -> deleteSelectedItem());
         create_new_entry_button.setOnAction(event -> addNewEntry());
         clear_fields_button.setOnAction(event -> clearSelectedFields());
-        searchButton();
         show_all_button.setOnAction(event -> getAllStaff());
         selectFromTable();
     }
@@ -161,25 +160,29 @@ public class StaffController implements Initializable {
 
     }
 
-    private void searchButton() {
-        search_button.setOnAction(event -> {
-            if (tf_search.getText().equals("")) {
-                getAllStaff();
-            } else {
-                getStaffById(Short.parseShort(tf_search.getText()));
-                tf_search.clear();
-            }
-        });
-    }
-
-    private void getStaffById(short id) {
-        ObservableList<StaffEntity> staffEntityObservableList = staffDAO.searchById(id);
-        tableResult(staffEntityObservableList);
-    }
-
     private void getAllStaff() {
         ObservableList<StaffEntity> staffEntityObservableList = staffDAO.getAll();
         tableResult(staffEntityObservableList);
+
+        FilteredList<StaffEntity> filteredList = new FilteredList<>(staffEntityObservableList, p -> true);
+
+        tf_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(staffEntity -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (staffEntity.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (staffEntity.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<StaffEntity> sortedList = new SortedList<>(filteredList);
+        sortedList.comparatorProperty().bind(staff_table.comparatorProperty());
+        staff_table.setItems(sortedList);
     }
 
     private void tableResult(ObservableList<StaffEntity> staffEntityObservableList) {
