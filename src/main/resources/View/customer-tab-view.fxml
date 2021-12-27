@@ -5,31 +5,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.CustomerController">
     <children>
-
-        <!-- Background image
-      <ImageView fitHeight="600.0" fitWidth="1000.0" focusTraversable="true" layoutX="-1.0" nodeOrientation="INHERIT" pickOnBounds="true" AnchorPane.bottomAnchor="0.0">
-         <image>
-            <Image url="@../Assets/movies.jpg" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </ImageView>
-        -->
-        <!-- Buttons -->
-        <!-- Search Button -->
-        <Button fx:id="search_button" layoutX="140.0" layoutY="25.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="43.0" text="Sök">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Button>
 
         <!-- Show all Button -->
         <Button fx:id="show_all_button" layoutX="23.0" layoutY="59.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Visa alla kunder">
@@ -66,7 +45,7 @@
         </TableView>
 
         <!-- TextFields -->
-        <TextField fx:id="tf_search" alignment="CENTER" layoutX="23.0" layoutY="26.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund id" />
+        <TextField fx:id="tf_search" alignment="CENTER" layoutX="23.0" layoutY="26.0" prefHeight="25.0" prefWidth="160.0" promptText="Sök efter kund" />
         <TextField fx:id="tf_firstName" alignment="CENTER" layoutX="644.0" layoutY="26.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
         <TextField fx:id="tf_lastName" alignment="CENTER" layoutX="644.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
         <TextField fx:id="tf_address" alignment="CENTER" layoutX="756.0" layoutY="26.0" prefHeight="26.0" prefWidth="67.0" promptText="Adress Id" />
