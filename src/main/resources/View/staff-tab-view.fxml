@@ -66,32 +66,24 @@
         </TableView>
 
         <!-- TextFields -->
-        <TextField fx:id="tf_search" layoutX="23.0" layoutY="26.0" prefHeight="26.0" prefWidth="131.0" promptText="Sök efter personal id" />
-        <TextField fx:id="tf_firstName" layoutX="594.0" layoutY="24.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
-        <TextField fx:id="tf_lastName" layoutX="594.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
-        <TextField fx:id="tf_address" layoutX="714.0" layoutY="24.0" prefHeight="26.0" prefWidth="76.0" promptText="Adress Id" />
-        <TextField fx:id="tf_store" layoutX="714.0" layoutY="72.0" prefHeight="26.0" prefWidth="76.0" promptText="Affär Id" />
-        <TextField fx:id="tf_email" layoutX="594.0" layoutY="119.0" prefHeight="26.0" prefWidth="245.0" promptText="Email" />
-        <TextField fx:id="tf_active" layoutX="807.0" layoutY="72.0" prefHeight="26.0" prefWidth="51.0" promptText="Aktiv" />
+        <TextField fx:id="tf_search" alignment="CENTER" layoutX="23.0" layoutY="26.0" prefHeight="26.0" prefWidth="131.0" promptText="Sök efter personal id" />
+        <TextField fx:id="tf_firstName" alignment="CENTER" layoutX="594.0" layoutY="24.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
+        <TextField fx:id="tf_lastName" alignment="CENTER" layoutX="594.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
+        <TextField fx:id="tf_address" alignment="CENTER" layoutX="714.0" layoutY="24.0" prefHeight="26.0" prefWidth="76.0" promptText="Adress Id" />
+        <TextField fx:id="tf_store" alignment="CENTER" layoutX="714.0" layoutY="72.0" prefHeight="26.0" prefWidth="76.0" promptText="Affär Id" />
+        <TextField fx:id="tf_email" alignment="CENTER" layoutX="594.0" layoutY="119.0" prefHeight="26.0" prefWidth="245.0" promptText="Email" />
+        <TextField fx:id="tf_active" alignment="CENTER" layoutX="807.0" layoutY="72.0" prefHeight="26.0" prefWidth="51.0" promptText="Aktiv" />
         <TextField fx:id="tf_id" alignment="CENTER" editable="false" layoutX="530.0" layoutY="24.0" prefHeight="26.0" prefWidth="51.0" promptText="Id" />
-        <TextField fx:id="tf_username" layoutX="594.0" layoutY="161.0" prefHeight="26.0" prefWidth="118.0" promptText="Användarnamn" />
-        <PasswordField fx:id="pf_password" layoutX="722.0" layoutY="161.0" prefHeight="26.0" prefWidth="118.0" promptText="Lösenord" />
+        <TextField fx:id="tf_username" alignment="CENTER" layoutX="594.0" layoutY="161.0" prefHeight="26.0" prefWidth="118.0" promptText="Användarnamn" />
+        <PasswordField fx:id="pf_password" alignment="CENTER" layoutX="722.0" layoutY="161.0" prefHeight="26.0" prefWidth="118.0" promptText="Lösenord" />
+        <TextField fx:id="tf_storeAddress" alignment="CENTER" editable="false" layoutX="137.0" layoutY="187.0" prefHeight="26.0" prefWidth="168.0" promptText="Affär Adress" />
+        <TextField fx:id="tf_staffAddress" alignment="CENTER" editable="false" layoutX="137.0" layoutY="155.0" prefHeight="26.0" prefWidth="168.0" promptText="Kund Adress" />
+        <TextField fx:id="tf_staffAddressId" alignment="CENTER" editable="false" layoutX="23.0" layoutY="155.0" prefHeight="26.0" prefWidth="101.0" promptText="Kund Adress Id" />
+        <TextField fx:id="tf_storeAddressId" alignment="CENTER" editable="false" layoutX="23.0" layoutY="187.0" prefHeight="26.0" prefWidth="101.0" promptText="Affär Adress Id" />
+
         <!-- Test Button to display values from the selected fields -->
         <Button fx:id="test_button" layoutX="329.0" layoutY="25.0" mnemonicParsing="false" text="test button" />
 
-        <!-- Second table  -->
-        <TableView fx:id="address_table" layoutX="25.0" layoutY="91.0" prefHeight="64.0" prefWidth="316.0">
-            <columns>
-                <TableColumn prefWidth="120.0" text="Personal Adress Id" />
-                <TableColumn prefWidth="189.0" text="Personal Adress" />
-            </columns>
-        </TableView>
-        <TableView fx:id="store_table" layoutX="25.0" layoutY="155.0" prefHeight="64.0" prefWidth="316.0">
-            <columns>
-                <TableColumn prefWidth="121.0" text="Affär Adress Id" />
-                <TableColumn prefWidth="188.0" text="Affär Adress" />
-            </columns>
-        </TableView>
     </children>
 
 </AnchorPane>

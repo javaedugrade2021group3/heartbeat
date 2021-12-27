@@ -66,32 +66,20 @@
         </TableView>
 
         <!-- TextFields -->
-        <TextField fx:id="tf_search" layoutX="23.0" layoutY="26.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund id" />
-        <TextField fx:id="tf_firstName" layoutX="644.0" layoutY="26.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
-        <TextField fx:id="tf_lastName" layoutX="644.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
-        <TextField fx:id="tf_address" layoutX="756.0" layoutY="26.0" prefHeight="26.0" prefWidth="67.0" promptText="Adress Id" />
-        <TextField fx:id="tf_store" layoutX="756.0" layoutY="72.0" prefHeight="26.0" prefWidth="67.0" promptText="Affär Id" />
-        <TextField fx:id="tf_email" layoutX="644.0" layoutY="119.0" prefHeight="26.0" prefWidth="239.0" promptText="Email" />
-        <TextField fx:id="tf_active" layoutX="832.0" layoutY="72.0" prefHeight="26.0" prefWidth="51.0" promptText="Aktiv" />
+        <TextField fx:id="tf_search" alignment="CENTER" layoutX="23.0" layoutY="26.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter kund id" />
+        <TextField fx:id="tf_firstName" alignment="CENTER" layoutX="644.0" layoutY="26.0" prefHeight="26.0" prefWidth="101.0" promptText="Förnamn" />
+        <TextField fx:id="tf_lastName" alignment="CENTER" layoutX="644.0" layoutY="72.0" prefHeight="26.0" prefWidth="101.0" promptText="Efternamn" />
+        <TextField fx:id="tf_address" alignment="CENTER" layoutX="756.0" layoutY="26.0" prefHeight="26.0" prefWidth="67.0" promptText="Adress Id" />
+        <TextField fx:id="tf_store" alignment="CENTER" layoutX="756.0" layoutY="72.0" prefHeight="26.0" prefWidth="67.0" promptText="Affär Id" />
+        <TextField fx:id="tf_email" alignment="CENTER" layoutX="644.0" layoutY="119.0" prefHeight="26.0" prefWidth="239.0" promptText="Email" />
+        <TextField fx:id="tf_active" alignment="CENTER" layoutX="832.0" layoutY="72.0" prefHeight="26.0" prefWidth="51.0" promptText="Aktiv" />
         <TextField fx:id="tf_id" alignment="CENTER" editable="false" layoutX="581.0" layoutY="25.0" prefHeight="26.0" prefWidth="51.0" promptText="Id" />
+        <TextField fx:id="tf_storeAddress" alignment="CENTER" editable="false" layoutX="137.0" layoutY="187.0" prefHeight="26.0" prefWidth="168.0" promptText="Affär Adress" />
+        <TextField fx:id="tf_customerAddress" alignment="CENTER" editable="false" layoutX="137.0" layoutY="155.0" prefHeight="26.0" prefWidth="168.0" promptText="Kund Adress" />
+        <TextField fx:id="tf_customerAddressId" alignment="CENTER" editable="false" layoutX="23.0" layoutY="155.0" prefHeight="26.0" prefWidth="101.0" promptText="Kund Adress Id" />
+        <TextField fx:id="tf_storeAddressId" alignment="CENTER" editable="false" layoutX="23.0" layoutY="187.0" prefHeight="26.0" prefWidth="101.0" promptText="Affär Adress Id" />
 
         <!-- Test Button to display values from the selected fields -->
         <Button fx:id="test_button" layoutX="329.0" layoutY="25.0" mnemonicParsing="false" text="test button" />
-
-        <!-- Address Table  -->
-        <TableView fx:id="address_table" layoutX="25.0" layoutY="91.0" prefHeight="64.0" prefWidth="316.0">
-            <columns>
-                <TableColumn prefWidth="94.0" text="Kund Adress Id" />
-                <TableColumn prefWidth="215.0" text="Kund Adress" />
-            </columns>
-        </TableView>
-
-        <!-- Store Table -->
-        <TableView fx:id="store_table" layoutX="25.0" layoutY="155.0" prefHeight="64.0" prefWidth="316.0">
-            <columns>
-                <TableColumn prefWidth="94.0" text="Affär Adress Id" />
-                <TableColumn prefWidth="215.0" text="Affär Adress" />
-            </columns>
-        </TableView>
     </children>
 </AnchorPane>
