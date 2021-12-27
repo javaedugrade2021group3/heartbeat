@@ -1,12 +1,16 @@
 package com.edugrade.heartbeat.DAO;
 
 import com.edugrade.heartbeat.Model.ActorEntity;
+import com.edugrade.heartbeat.Model.CustomerEntity;
 import com.edugrade.heartbeat.Utility.HibernateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 public class ActorDAO implements DAOInterface<ActorEntity>{
@@ -43,5 +47,32 @@ public class ActorDAO implements DAOInterface<ActorEntity>{
             entityManager.close();
         }
         return FXCollections.observableArrayList(actorEntityList);
+    }
+    public void updateActor(short id, String firstName, String lastName) {
+        EntityManager entityManager = HibernateUtil.getEntityManager();
+        EntityTransaction transaction = null;
+        Date date = new Date();
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            ActorEntity actor = entityManager.find(ActorEntity.class, id);
+            entityManager.detach(actor);
+            actor.setFirstName(firstName);
+            actor.setLastName(lastName);
+            actor.setLastUpdate(new Timestamp(date.getTime()));
+            entityManager.merge(actor);
+            entityManager.flush();
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+
     }
 }

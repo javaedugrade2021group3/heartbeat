@@ -3,6 +3,7 @@ package com.edugrade.heartbeat.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,23 @@ public class ActorEntity implements Serializable {
     private String firstName;
     private String lastName;
     private Timestamp lastUpdate;
+    private List<FilmEntity> films;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "film_actor",
+            joinColumns = {@JoinColumn(name = "actor_id")},
+            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+    )
+    public List<FilmEntity> getFilms() {
+        return films;
+    }
+    public void setFilms(List<FilmEntity> films) {
+        this.films = films;
+    }
+
+
+
+
 
     @Id
     @Column(name = "actor_id")

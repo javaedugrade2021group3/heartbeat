@@ -3,6 +3,8 @@ package com.edugrade.heartbeat.Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -45,6 +47,15 @@ public class FilmEntity {
     @Basic
     @Column(name = "last_update")
     private Timestamp lastUpdate;
+    @ManyToMany(mappedBy = "films", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<ActorEntity>actors = new ArrayList<ActorEntity>();
+    public void setActors(List<ActorEntity> actors) {
+        this.actors = actors;
+    }
+
+    public List<ActorEntity> getActors() {
+        return actors;
+    }
 
     public short getFilmId() {
         return filmId;

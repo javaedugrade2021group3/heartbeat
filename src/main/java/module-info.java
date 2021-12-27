@@ -7,6 +7,7 @@ module com.edugrade.heartbeat {
     requires org.hibernate.orm.core;
     requires java.sql;
     requires java.naming;
+    requires javafx.graphics;
 
     opens com.edugrade.heartbeat.Controller;
     opens com.edugrade.heartbeat.Model;
