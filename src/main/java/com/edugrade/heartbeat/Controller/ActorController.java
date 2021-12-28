@@ -24,6 +24,10 @@ public class ActorController implements Initializable {
     @FXML
     private Button update_actor_button;
     @FXML
+    private Button delete_actor_button;
+    @FXML
+    private Button create_actor_button;
+    @FXML
     private  Label film_label;
     @FXML
     private Label fx_message ;
@@ -42,8 +46,13 @@ public class ActorController implements Initializable {
         selectActorFromTable();
         showAllOrFilteredActors();
         update_actor_button.setOnAction(event -> updateActorRecord());
+        delete_actor_button.setOnAction(event -> deleteActorRecord());
+        create_actor_button.setOnAction(event -> createActorRecord());
 
     }
+
+
+
     private void showAllActors(ObservableList<ActorEntity> allActors){
         actor_table.setItems(allActors);
         TableColumn column0 = (TableColumn) actor_table.getColumns().get(0);
@@ -117,6 +126,25 @@ public class ActorController implements Initializable {
             setTimeout(() -> fx_message.setText(""), 1000);
         }
 
+    }
+    private void deleteActorRecord() {
+        if(actorToEditOrDelete!=null){
+            actorDAO.deleteById(actorToEditOrDelete.getActorId());
+            showAllOrFilteredActors();
+            fx_message.setText("Aktorn raderad");
+            setTimeout(() -> fx_message.setText(""), 1000);
+        }
+    }
+    private void createActorRecord() {
+        ActorEntity actor = new ActorEntity();
+        actor.setFirstName(tf_firstName.getText());
+        actor.setLastName(tf_lastName.getText());
+        if(actor!=null){
+            actorDAO.save(actor);
+            showAllOrFilteredActors();
+            fx_message.setText("Aktorn Skapad");
+            setTimeout(() -> fx_message.setText(""), 1000);
+        }
     }
     public static void setTimeout(Runnable runnable, int delay){
         new Thread(() -> {
