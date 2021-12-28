@@ -18,12 +18,14 @@
         <TextField fx:id="tf_actor_search" layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter skådespelare" />
         <TextField fx:id="tf_firstName" layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
         <TextField fx:id="tf_lastName" layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
-        <Button fx:id="update_actor_button" layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <Button fx:id="update_actor_button" layoutX="596.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <Button fx:id="delete_actor_button" layoutX="781.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Radera" textFill="WHITE" />
       <ListView fx:id="film_view" layoutX="544.0" layoutY="134.0" prefHeight="292.0" prefWidth="356.0" />
       <Label fx:id="film_label" alignment="CENTER" layoutX="507.0" layoutY="117.0" prefHeight="17.0" prefWidth="339.0" />
       <Label fx:id="fx_message" layoutX="63.0" layoutY="83.0" prefHeight="17.0" prefWidth="356.0" textFill="#10e878">
          <font>
             <Font size="23.0" />
          </font></Label>
+      <Button fx:id="create_actor_button" layoutX="679.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Skapa" />
     </children>
 </AnchorPane>

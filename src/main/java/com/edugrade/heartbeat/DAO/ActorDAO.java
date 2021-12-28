@@ -12,6 +12,7 @@ import javax.persistence.TypedQuery;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class ActorDAO implements DAOInterface<ActorEntity>{
     @Override
@@ -75,4 +76,38 @@ public class ActorDAO implements DAOInterface<ActorEntity>{
         }
 
     }
+
+
+    public void deleteById(short id) {
+        EntityManager entityManager = HibernateUtil.getEntityManager();
+        EntityTransaction transaction = null;
+        ActorEntity actor = entityManager.find(ActorEntity.class, id);
+        if (actor != null) {
+            try {
+                entityManager.getTransaction().begin();
+                actor.getFilms().forEach(movie -> {
+                    movie.getActors().remove(actor);
+                });
+                entityManager.remove(actor);
+                entityManager.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public Optional<ActorEntity> save(ActorEntity actor) {
+        Date date = new Date();
+        actor.setLastUpdate(new Timestamp(date.getTime()));
+        EntityManager entityManager = HibernateUtil.getEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(actor);
+            entityManager.getTransaction().commit();
+            return Optional.of(actor);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
 }
+
