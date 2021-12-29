@@ -3,39 +3,114 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edugrade.heartbeat.Controller.FilmController">
     <children>
-        <ImageView fitHeight="636.0" fitWidth="1050.0" layoutX="-1.0" opacity="0.54" pickOnBounds="true" AnchorPane.bottomAnchor="0.0">
+        <ImageView fitHeight="636.0" fitWidth="1002.0" layoutX="-1.0" opacity="0.74" pickOnBounds="true" AnchorPane.bottomAnchor="0.0">
          <image>
             <Image url="@../Assets/movies.jpg" />
          </image></ImageView>
-        <Button layoutX="162.0" layoutY="24.0" mnemonicParsing="false" text="Sök" />
-        <TableView fx:id="film_table" layoutX="21.0" layoutY="128.0" prefHeight="361.0" prefWidth="966.0">
+        <Button fx:id="search_button" layoutX="162.0" layoutY="24.0" mnemonicParsing="false" text="Sök">
+         <effect>
+            <DropShadow spread="0.59" />
+         </effect></Button>
+        <TableView fx:id="film_table" layoutX="14.0" layoutY="186.0" prefHeight="329.0" prefWidth="962.0">
             <columns>
-                <TableColumn prefWidth="47.0" text="Film Id" />
-                <TableColumn prefWidth="117.0" text="Titel" />
-                <TableColumn prefWidth="93.0" text="Innehåll" />
-                <TableColumn prefWidth="108.0" text="Släppt år" />
-                <TableColumn prefWidth="47.0" text="Språk Id"/>
-                <TableColumn prefWidth="65.0" text="Originalspråk Id"/>
-                <TableColumn prefWidth="60.0" text="Hyrtid" />
-                <TableColumn prefWidth="56.0" text="Hyrpris" />
-                <TableColumn prefWidth="97.0" text="Längd" />
-                <TableColumn prefWidth="190.0" text="Ersättningskostnad" />
-                <TableColumn maxWidth="200.0" prefWidth="277.0" text="Senast uppdaterad" />
+                <TableColumn prefWidth="122.0" text="Film Id" />
+                <TableColumn text="Titel" />
+                <TableColumn minWidth="0.0" prefWidth="109.0" text="Innehåll" />
+                <TableColumn prefWidth="54.0" text="Släppt år" />
+                <TableColumn prefWidth="57.0" text="Språk Id" />
+                <TableColumn minWidth="0.0" prefWidth="5.0" text="Originalspråk Id" />
+                <TableColumn prefWidth="147.0" text="Hyrtid" />
+                <TableColumn prefWidth="121.0" text="Hyrpris" />
+                <TableColumn prefWidth="69.0" text="Längd" />
+                <TableColumn prefWidth="76.0" text="Ersättningskostnad" />
+                <TableColumn maxWidth="275.0" prefWidth="240.0" text="Senast uppdaterad" />
             </columns>
+         <effect>
+            <DropShadow height="56.38" radius="18.845" spread="0.58" />
+         </effect>
         </TableView>
-        <TextField layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter titel" />
-        <TextField layoutX="474.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Förnamn" />
-        <TextField layoutX="474.0" layoutY="58.0" prefHeight="24.0" prefWidth="87.0" promptText="Efternamn" />
-        <TextField layoutX="584.0" layoutY="24.0" prefHeight="24.0" prefWidth="86.0" promptText="Adress" />
-        <TextField layoutX="584.0" layoutY="58.0" prefHeight="24.0" prefWidth="86.0" promptText="Telefon" />
-        <Button layoutX="686.0" layoutY="24.0" mnemonicParsing="false" text="Uppdatera" />
+        <TextField fx:id="tf_search" layoutX="35.0" layoutY="24.0" prefHeight="24.0" prefWidth="114.0" promptText="Sök efter titel">
+         <effect>
+            <DropShadow spread="0.53" />
+         </effect></TextField>
+        <TextField fx:id="tf_rentalduration" layoutX="662.0" layoutY="24.0" prefHeight="26.0" prefWidth="120.0" promptText="Hyrtid">
+         <effect>
+            <DropShadow spread="0.51" />
+         </effect></TextField>
+        <TextField fx:id="tf_rentalrate" layoutX="662.0" layoutY="59.0" prefHeight="26.0" prefWidth="120.0" promptText="Hyrpris">
+         <effect>
+            <DropShadow spread="0.55" />
+         </effect></TextField>
+        <TextField fx:id="tf_replacementcost" layoutX="662.0" layoutY="99.0" prefHeight="26.0" prefWidth="120.0" promptText="Ersättningskostnad">
+         <effect>
+            <DropShadow spread="0.45" />
+         </effect></TextField>
+        <Button fx:id="update_button" layoutX="864.0" layoutY="111.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #c5fcbd;" text="Uppdatera">
+         <effect>
+            <DropShadow spread="0.69" />
+         </effect></Button>
+      <Button fx:id="show_all_films" layoutX="36.0" layoutY="59.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Visa alla titlar">
+         <effect>
+            <DropShadow spread="0.58" />
+         </effect></Button>
+      <TextField fx:id="tf_title" layoutX="391.0" layoutY="24.0" prefHeight="26.0" prefWidth="254.0" promptText="Titel">
+         <effect>
+            <DropShadow spread="0.54" />
+         </effect>
+      </TextField>
+      <TextArea fx:id="tf_description" layoutX="341.0" layoutY="59.0" prefHeight="39.0" prefWidth="304.0" promptText="Innehåll">
+         <effect>
+            <DropShadow height="44.58" radius="15.895" spread="0.49" />
+         </effect>
+      </TextArea>
+      <Button fx:id="create_new_film_button" layoutX="864.0" layoutY="149.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #f54242;" text="Spara ny film">
+         <effect>
+            <DropShadow radius="10.7375" spread="0.58" width="23.95" />
+         </effect>
+      </Button>
+      <Button fx:id="delete_button" layoutX="864.0" layoutY="23.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #fdff85;" text=" Ta bort film">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow spread="0.64" />
+         </effect>
+      </Button>
+      <TextField fx:id="tf_filmid" layoutX="343.0" layoutY="24.0" prefHeight="26.0" prefWidth="38.0" promptText="Id">
+         <effect>
+            <DropShadow spread="0.51" />
+         </effect>
+      </TextField>
+      <Button fx:id="clear_button" layoutX="864.0" layoutY="59.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" text="Rensa">
+         <effect>
+            <DropShadow spread="0.53" />
+         </effect>
+      </Button>
+      <TextField fx:id="tf_releaseyear" layoutX="662.0" layoutY="137.0" prefHeight="26.0" prefWidth="120.0" promptText="Släppt år">
+         <effect>
+            <DropShadow spread="0.66" />
+         </effect>
+      </TextField>
+      <TextField fx:id="tf_length" layoutX="576.0" layoutY="111.0" prefHeight="29.0" prefWidth="69.0" promptText="Längd">
+         <effect>
+            <DropShadow spread="0.62" />
+         </effect>
+      </TextField>
+      <TextField fx:id="tf_languageid" layoutX="576.0" layoutY="146.0" prefHeight="29.0" prefWidth="69.0" promptText="Språk Id">
+         <effect>
+            <DropShadow spread="0.65" />
+         </effect>
+      </TextField>
     </children>
 
 </AnchorPane>

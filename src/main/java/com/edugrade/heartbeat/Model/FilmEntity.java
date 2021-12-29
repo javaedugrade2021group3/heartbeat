@@ -24,7 +24,7 @@ public class FilmEntity {
     private String description;
     @Basic
     @Column(name = "release_year")
-    private String releaseYear;
+    private Short releaseYear;
     @Basic
     @Column(name = "language_id")
     private byte languageId;
@@ -57,6 +57,10 @@ public class FilmEntity {
         return actors;
     }
 
+
+
+
+
     public short getFilmId() {
         return filmId;
     }
@@ -81,11 +85,11 @@ public class FilmEntity {
         this.description = description;
     }
 
-    public String getReleaseYear() {
+    public Short getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(String releaseYear) {
+    public void setReleaseYear(Short releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -105,8 +109,8 @@ public class FilmEntity {
         this.originalLanguageId = originalLanguageId;
     }
 
-    public byte getRentalDuration() {
-        return rentalDuration;
+    public String getRentalDuration() {
+        return String.valueOf(rentalDuration);
     }
 
     public void setRentalDuration(byte rentalDuration) {

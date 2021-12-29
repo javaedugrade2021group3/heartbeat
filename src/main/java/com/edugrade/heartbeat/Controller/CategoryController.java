@@ -19,6 +19,7 @@ public class CategoryController implements Initializable{
     private TableView category_table;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CategoryDAO categoryDAO = new CategoryDAO();
